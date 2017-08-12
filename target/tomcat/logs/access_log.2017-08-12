@@ -8,3 +8,5 @@
 10.1.24.223 - - [12/Aug/2017:16:39:01 +0800] "GET /signup/signup HTTP/1.1" 200 329 http-bio-8080-exec-3 3
 10.1.24.223 - - [12/Aug/2017:16:39:04 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-6 0
 127.0.0.1 - - [12/Aug/2017:16:59:42 +0800] "GET /songblog/ HTTP/1.1" 404 - http-bio-8080-exec-1 0
+127.0.0.1 - - [12/Aug/2017:17:07:37 +0800] "GET /songblog/search.xml HTTP/1.0" 404 - http-bio-8080-exec-8 0
+127.0.0.1 - - [12/Aug/2017:17:07:54 +0800] "GET /songblog/cgi/reccom?id=464D7192B39B929F499220950BAE85F8AC87E3C42104020A52CAC85B400C7360 HTTP/1.0" 404 - http-bio-8080-exec-5 0
