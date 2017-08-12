@@ -37,10 +37,8 @@ public class BaseServlet extends HttpServlet{
 		try {
 			req.getRequestDispatcher(viewDir+view).forward(req, resp);
 		} catch (ServletException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

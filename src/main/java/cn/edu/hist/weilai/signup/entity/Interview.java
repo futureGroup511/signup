@@ -7,10 +7,10 @@ package cn.edu.hist.weilai.signup.entity;
 public class Interview {
 	private String _id;
 	private String admin_id;
-	private String admin_name;
+	private String adminName;
 	private String student_id;
-	private String student_name;
-	private String student_majorClass;
+	private String studentName;
+	private String studentMajorClass;
 	
 	private String comment;//整体评价
 	private int score;//总分数
