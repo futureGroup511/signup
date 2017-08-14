@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+
 import cn.edu.hist.weilai.signup.service.AdminService;
 import cn.edu.hist.weilai.signup.service.StudentService;
 
@@ -48,6 +51,14 @@ public class BaseServlet extends HttpServlet{
 			e.printStackTrace();
 		}
 	}
+	protected void respStr(String str,HttpServletResponse resp) {
+		try {
+			resp.getWriter().print(str);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	//连续获取多个参数
 	protected String[] getParams(HttpServletRequest req,String ...params) {
@@ -68,5 +79,4 @@ public class BaseServlet extends HttpServlet{
 	protected void redir500(HttpServletResponse resp) {
 		logger.debug("500.....");
 	}
-
 }

@@ -21,4 +21,17 @@ public class CheckUtils {
 		}
 		return false;
 	}
+	public static boolean hasStrs(String[] objects,String ...strings) {
+		for(Object obj:objects) {
+			if(obj == null) {
+				continue;
+			}
+			for(String str:strings) {
+				if(obj.toString().contains(str)) {
+					
+				}
+			}
+		}
+		return false;
+	}
 }
