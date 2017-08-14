@@ -13,4 +13,12 @@ public class CheckUtils {
 		}
 		return false;
 	}
+	public static boolean hasNull(String[] objects) {
+		for(Object obj:objects) {
+			if(obj==null || obj.equals("")) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

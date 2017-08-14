@@ -20,9 +20,11 @@ import com.mongodb.client.MongoCursor;
 
 import cn.edu.hist.weilai.signup.entity.MongoEntity;
 import cn.edu.hist.weilai.signup.utils.PageCut;
-
-
-
+/*
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.regex;
+import static com.mongodb.client.model.Updates.inc;
+*/
 //数据库操作基类，只有此类对外暴露数据接口，封装了一系列数据操作方法，为了标识，本类方法一般为final 且方法名字以Entity结束
 public abstract class MongoBaseDao<T extends MongoEntity> {
 	private Logger logger = Logger.getLogger(MongoBaseDao.class);

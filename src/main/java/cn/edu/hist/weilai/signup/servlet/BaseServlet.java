@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import cn.edu.hist.weilai.signup.service.AdminService;
+import cn.edu.hist.weilai.signup.service.StudentService;
+
 /*
 @Author:song
 @Date:2017年8月12日
@@ -24,6 +27,9 @@ public class BaseServlet extends HttpServlet{
 	protected String viewDir = "/WEB-INF/view/";
 	protected String suffix = ".jsp";
 	protected Logger logger = null;
+	
+	protected AdminService adminService = new AdminService();
+	protected StudentService studentService = new StudentService();
 	
 	public BaseServlet() {
 		// TODO Auto-generated constructor stub
@@ -41,6 +47,18 @@ public class BaseServlet extends HttpServlet{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	//连续获取多个参数
+	protected String[] getParams(HttpServletRequest req,String ...params) {
+		if(params == null || params.length==0)
+			return null;
+		
+		String[] values = new String[params.length];
+		for(int i=0;i<params.length;i++) {
+			values[i] = req.getParameter(params[i]);
+		}
+		return values;
 	}
 	
 	protected void redir404(HttpServletResponse resp) {
