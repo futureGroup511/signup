@@ -13,4 +13,25 @@ public class CheckUtils {
 		}
 		return false;
 	}
+	public static boolean hasNull(String[] objects) {
+		for(Object obj:objects) {
+			if(obj==null || obj.equals("")) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public static boolean hasStrs(String[] objects,String ...strings) {
+		for(Object obj:objects) {
+			if(obj == null) {
+				continue;
+			}
+			for(String str:strings) {
+				if(obj.toString().contains(str)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

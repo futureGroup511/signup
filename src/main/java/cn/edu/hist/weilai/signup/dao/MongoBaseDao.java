@@ -20,9 +20,11 @@ import com.mongodb.client.MongoCursor;
 
 import cn.edu.hist.weilai.signup.entity.MongoEntity;
 import cn.edu.hist.weilai.signup.utils.PageCut;
-
-
-
+/*
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.regex;
+import static com.mongodb.client.model.Updates.inc;
+*/
 //数据库操作基类，只有此类对外暴露数据接口，封装了一系列数据操作方法，为了标识，本类方法一般为final 且方法名字以Entity结束
 public abstract class MongoBaseDao<T extends MongoEntity> {
 	private Logger logger = Logger.getLogger(MongoBaseDao.class);
@@ -64,14 +66,28 @@ public abstract class MongoBaseDao<T extends MongoEntity> {
 		query.put("_id", new ObjectId(_id));
 		return getCollection().findOneAndDelete(query) != null;
 	}
-	public final boolean updateEntity() {
-		
-		return false;
+	public final boolean updateEntity(T entity) {
+		String _id = entity.get_id();
+		BasicDBObject query = new BasicDBObject();
+		query.put("_id", new ObjectId(_id));
+		entity.set_id(null);
+		getCollection().findOneAndReplace(query, MongoEntityUtils.toDocument(entity));
+		entity.set_id(_id);
+		return true;
 	}
 	
-	public final List<T> queryEntity() {
+	public final List<T> queryEntityList() {
 		return null;
 	}
+	public final T queryEntity(String _id) {
+		logger.debug(_id);
+		BasicDBObject query = new BasicDBObject();
+		query.put("_id", new ObjectId(_id));
+		
+		Document doc = getCollection().find(query).first();
+		return toEntity(doc);
+	}
+	
 	public final T queryFirstEntity() {
 		return null;
 	}

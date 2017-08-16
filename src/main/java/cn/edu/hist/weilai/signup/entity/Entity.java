@@ -25,7 +25,6 @@ public abstract class Entity implements MongoEntity{
 		}
 		return this.collectionName;
 	}
-
 	public boolean check() {
 		return true;
 	}
