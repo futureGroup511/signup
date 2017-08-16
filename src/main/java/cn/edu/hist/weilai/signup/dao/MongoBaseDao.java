@@ -66,14 +66,26 @@ public abstract class MongoBaseDao<T extends MongoEntity> {
 		query.put("_id", new ObjectId(_id));
 		return getCollection().findOneAndDelete(query) != null;
 	}
-	public final boolean updateEntity() {
-		
-		return false;
+	public final boolean updateEntity(T entity) {
+		BasicDBObject query = new BasicDBObject();
+		query.put("_id", new ObjectId(entity.get_id()));
+		entity.set_id(null);
+		getCollection().findOneAndReplace(query, MongoEntityUtils.toDocument(entity));
+		return true;
 	}
 	
-	public final List<T> queryEntity() {
+	public final List<T> queryEntityList() {
 		return null;
 	}
+	public final T queryEntity(String _id) {
+		logger.debug(_id);
+		BasicDBObject query = new BasicDBObject();
+		query.put("_id", new ObjectId(_id));
+		
+		Document doc = getCollection().find(query).first();
+		return toEntity(doc);
+	}
+	
 	public final T queryFirstEntity() {
 		return null;
 	}

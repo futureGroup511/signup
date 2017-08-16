@@ -36,7 +36,18 @@ public class View extends BaseServlet{
 		String p = req.getParameter("page");
 		int page = TextUtils.parseInt(p, 1);
 		req.setAttribute("search", search);
-		PageCut<Student> pc = studentService.getPageCutBySearch(page>0?page:1, 10, search);
+		PageCut<Student> pc = null;
+		String state = req.getParameter("state");
+		if(CheckUtils.hasNull(state)) {
+			pc = studentService.getPageCutBySearch(page, 10, search);
+		}else {
+			int stateint = TextUtils.parseInt(state, -1);
+			if(stateint<0 || stateint > 4) {
+				stateint = 0;
+			}
+			pc = studentService.getPageCutBySearch(page, 10, search, stateint);
+			req.setAttribute("state", stateint);
+		}
 		for(Student s:pc.getData()) {
 			s.warnFont(search);
 		}

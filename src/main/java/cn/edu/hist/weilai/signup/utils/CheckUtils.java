@@ -28,7 +28,7 @@ public class CheckUtils {
 			}
 			for(String str:strings) {
 				if(obj.toString().contains(str)) {
-					
+					return true;
 				}
 			}
 		}

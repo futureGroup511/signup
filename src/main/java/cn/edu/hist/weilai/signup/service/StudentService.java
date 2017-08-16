@@ -25,6 +25,9 @@ import cn.edu.hist.weilai.signup.utils.PageCut;
 */
 public class StudentService extends MongoBaseDao<Student>{
 	public PageCut<Student> getPageCutBySearch(int page,int size,String search){
+		if(page < 1) {
+			page = 1;
+		}
 		MongoCursor<Document> results = null;
 		Long count = 0L;
 		if(CheckUtils.hasNull(search)) {
@@ -42,6 +45,9 @@ public class StudentService extends MongoBaseDao<Student>{
 		return pc;
 	}
 	public PageCut<Student> getPageCutBySearch(int page,int size,String search,int state){
+		if(page < 1) {
+			page = 1;
+		}
 		MongoCursor<Document> results = null;
 		Long count = 0L;
 		if(CheckUtils.hasNull(search)) {
@@ -58,5 +64,9 @@ public class StudentService extends MongoBaseDao<Student>{
 		List<Student> articles = MongoEntityUtils.toList(results, Student.class,size);
 		pc.setData(articles);
 		return pc;
+	}
+	public Student getByPhone(String phone) {
+		Document doc = getCollection().find(eq("phone",phone)).first();
+		return toEntity(doc);
 	}
 }

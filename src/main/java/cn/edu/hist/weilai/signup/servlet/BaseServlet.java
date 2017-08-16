@@ -9,10 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-
 import cn.edu.hist.weilai.signup.service.AdminService;
+import cn.edu.hist.weilai.signup.service.InterviewItemService;
+import cn.edu.hist.weilai.signup.service.InterviewService;
 import cn.edu.hist.weilai.signup.service.StudentService;
 
 /*
@@ -33,6 +32,8 @@ public class BaseServlet extends HttpServlet{
 	
 	protected AdminService adminService = new AdminService();
 	protected StudentService studentService = new StudentService();
+	protected InterviewItemService interviewItemService = new InterviewItemService();
+	protected InterviewService interviewService = new InterviewService();
 	
 	public BaseServlet() {
 		// TODO Auto-generated constructor stub
@@ -70,6 +71,14 @@ public class BaseServlet extends HttpServlet{
 			values[i] = req.getParameter(params[i]);
 		}
 		return values;
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected <T> T getSessionAttr(String name,Class<? extends Object> t,HttpServletRequest req) {
+		Object obj = req.getSession().getAttribute(name);
+		//return obj == null?null : (T)obj;
+		//null可以转换为任意类型
+		return (T)obj;
 	}
 	
 	protected void redir404(HttpServletResponse resp) {

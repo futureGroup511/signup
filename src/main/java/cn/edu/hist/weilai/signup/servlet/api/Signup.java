@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.edu.hist.weilai.signup.apitools.ReturnResult;
+import cn.edu.hist.weilai.signup.apitools.ApiTools;
+import cn.edu.hist.weilai.signup.entity.Student;
+import cn.edu.hist.weilai.signup.entity.StudentState;
 import cn.edu.hist.weilai.signup.servlet.BaseServlet;
 import cn.edu.hist.weilai.signup.utils.CheckUtils;
 
@@ -27,11 +29,22 @@ public class Signup extends BaseServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String[] values = this.getParams(req, "name","phone","qq","college","majorClass");
-		if(CheckUtils.hasNull(values)) {
-			ReturnResult rr = new ReturnResult(-1, "请求数据有误,请正确填写数据！");
-			respStr(rr.toJson(), resp);
+		//检查是否为null,且过滤特殊符号防止页面注入js和css
+		if(CheckUtils.hasNull(values) || CheckUtils.hasStrs(values, "<",">")) {
+			ApiTools.respResult(1, resp);
 			return;
 		}
-		
+		Student student = studentService.getByPhone(values[1]);
+		if(student != null) {
+			ApiTools.respResult(2, resp);
+			return;
+		}
+		student = new Student(values[0], values[3], values[4], values[1], values[2],StudentState.NORMAL);
+		boolean success = studentService.insertEntity(student);
+		if(success) {
+			ApiTools.respResult(0, resp);
+			return;
+		}
+		ApiTools.respResult(3, resp);
 	}
 }

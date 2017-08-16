@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import cn.edu.hist.weilai.signup.entity.Admin;
+import cn.edu.hist.weilai.signup.service.AdminService;
+
 /*
 @Author:song
 @Date:2017年8月12日
@@ -37,6 +40,11 @@ public class AllFilter implements Filter{
 		req.setCharacterEncoding("utf-8");
 		res.setContentType("text/html;charset=utf-8");
 		logger.debug("req url:"+req.getRequestURL());
+		
+		//调试阶段，为每个session添加登录状态
+		
+		Admin admin = new AdminService().queryByAccountAndPassword("15516672556", "song");
+		req.getSession().setAttribute("admin", admin);
 		arg2.doFilter(arg0, arg1);
 		
 	}

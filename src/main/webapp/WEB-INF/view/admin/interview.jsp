@@ -39,6 +39,7 @@
 				    <th>学院</th>
 				    <th>状态</th>
 				    <th>报名时间</th>
+				    <th>面试</th>
 				  </tr>
 				</thead>
 				<c:forEach var="item" items="${pc.data }">
@@ -50,6 +51,7 @@
 					    <th>${item.college }</th>
 					    <th>${item.state }</th>
 					    <th>${item.signupTime }</th>
+					    <th><a href="interviewOne?id=${item._id }" style="color:#FFF;" class="am-btn am-btn-primary am-btn-xs am-round">面试</a></th>
 				  	</tr>
 				</c:forEach>
 			  </table>
