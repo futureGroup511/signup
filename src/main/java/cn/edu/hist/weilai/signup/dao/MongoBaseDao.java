@@ -67,10 +67,12 @@ public abstract class MongoBaseDao<T extends MongoEntity> {
 		return getCollection().findOneAndDelete(query) != null;
 	}
 	public final boolean updateEntity(T entity) {
+		String _id = entity.get_id();
 		BasicDBObject query = new BasicDBObject();
-		query.put("_id", new ObjectId(entity.get_id()));
+		query.put("_id", new ObjectId(_id));
 		entity.set_id(null);
 		getCollection().findOneAndReplace(query, MongoEntityUtils.toDocument(entity));
+		entity.set_id(_id);
 		return true;
 	}
 	

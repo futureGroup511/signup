@@ -10,4 +10,20 @@ public class StudentState {
 	public static final int INTERVIEW_SUCCESS = 2;
 	public static final int INTERVIEW_FAIL = 3;
 	public static final int DELETE = 4;
+	
+	public static String getState(int state) {
+		switch (state) {
+		case NORMAL:
+			return "未面试";
+		case INTERVIEW:
+			return "面试";
+		case INTERVIEW_SUCCESS:
+			return "面试成功";
+		case INTERVIEW_FAIL:
+			return "面试失败";
+		case DELETE:
+			return "已删除";
+		}
+		return "未知";
+	}
 }

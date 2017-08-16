@@ -1,7 +1,6 @@
 package cn.edu.hist.weilai.signup.servlet.admin;
 
 import java.io.IOException;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -69,16 +68,17 @@ public class InterviewOne extends BaseServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//后台都是自己小组的人，不做各种验证！
-		Enumeration<String> names = req.getParameterNames();
 		JSONObject commentItems = new JSONObject();
 		int score = 0;
-		while(names.hasMoreElements()) {
-			String name = names.nextElement();
+		List<InterviewItem> items = interviewItemService.queryAllEntity();
+		for(InterviewItem item:items) {
+			String name = item.getName();
 			if(! name.equals("id")) {
 				String value = req.getParameter(name);
 				logger.debug(name+value);
 				commentItems.put(name, value);
-				if(!name.equals("整体评价")) {
+				//必须要判断
+				if(item.getType().equals(InterviewItem.TYPE_NUMBER)) {
 					score += TextUtils.parseInt(value, 0);
 				}
 			}

@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 import cn.edu.hist.weilai.signup.service.AdminService;
 import cn.edu.hist.weilai.signup.service.InterviewItemService;
 import cn.edu.hist.weilai.signup.service.InterviewService;
+import cn.edu.hist.weilai.signup.service.StatisticsService;
 import cn.edu.hist.weilai.signup.service.StudentService;
 
 /*
@@ -34,6 +35,7 @@ public class BaseServlet extends HttpServlet{
 	protected StudentService studentService = new StudentService();
 	protected InterviewItemService interviewItemService = new InterviewItemService();
 	protected InterviewService interviewService = new InterviewService();
+	protected StatisticsService statisticsService = new StatisticsService();
 	
 	public BaseServlet() {
 		// TODO Auto-generated constructor stub

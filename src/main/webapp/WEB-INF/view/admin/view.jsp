@@ -69,7 +69,7 @@
 			</div>
 			<div class="am-u-sm-8 am-u-lg-9">
 				<div class="am-form-group">
-					<input name="search" type="text" placeholder="输入班级、姓名、电话号搜索"
+					<input name="search" type="text" placeholder="输入姓名、电话、QQ、班级、院系搜索"
 						value="${search }">
 				</div>
 			</div>
@@ -113,9 +113,30 @@
 							<th>${item.qq }</th>
 							<th>${item.majorClass }</th>
 							<th>${item.college }</th>
-							<th>${item.state }</th>
+							<th>
+								<c:choose>
+									<c:when test="${item.state == 0 }">
+										未面试
+									</c:when>
+									<c:when test="${item.state == 1 }">
+										面试中
+									</c:when>
+									<c:when test="${item.state == 2 }">
+										面试成功
+									</c:when>
+									<c:when test="${item.state == 3 }">
+										面试失败
+									</c:when>
+									<c:when test="${item.state == 4 }">
+										已经删除
+									</c:when>
+									<c:otherwise>
+										未知
+									</c:otherwise>
+								</c:choose>
+							</th>
 							<th>${item.signupTime }</th>
-							<th><a href="interviewOne?id=${item._id }" style="color:#FFF;" class="am-btn am-btn-primary am-btn-xs">面试结果</a></th>
+							<th><a href="interviewResult?id=${item._id }" style="color:#FFF;" class="am-btn am-btn-primary am-btn-xs">面试结果</a></th>
 						</tr>
 					</c:forEach>
 					<tr>
@@ -139,9 +160,9 @@
 	<div class="am-g">
 		<div class="am-u-sm-12 am-center">
 			<ul class="am-pagination">
-				<li><a href="?page=${pc.prePage }&search=${search }">&laquo;</a></li>
+				<li><a href="?state=${state }&page=${pc.prePage }&search=${search }">&laquo;</a></li>
 				<c:if test="${pc.currPage >3 }">
-					<li><a href="?page=1&search=${search }">1</a></li>
+					<li><a href="?state=${state }&page=1&search=${search }">1</a></li>
 				</c:if>
 				<c:if test="${pc.currPage > 4 }">
 					<li><a class="disabled">...</a></li>
@@ -152,10 +173,10 @@
 					<c:choose>
 						<c:when test="${item == pc.currPage }">
 							<li class="am-active"><a
-								href="?page=${item }&search=${search }">${item }</a></li>
+								href="?state=${state }&page=${item }&search=${search }">${item }</a></li>
 						</c:when>
 						<c:when test="${item > 0 }">
-							<li><a href="?page=${item }&search=${search }">${item }</a></li>
+							<li><a href="?state=${state }&page=${item }&search=${search }">${item }</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
@@ -163,9 +184,9 @@
 					<li><a class="disabled">...</a></li>
 				</c:if>
 				<c:if test="${pc.currPage +2 < pc.pageNum }">
-					<li><a href="?page=${pc.pageNum }&search=${search }">${pc.pageNum }</a></li>
+					<li><a href="?state=${state }&page=${pc.pageNum }&search=${search }">${pc.pageNum }</a></li>
 				</c:if>
-				<li><a href="?page=${pc.nextPage }&search=${search }">&raquo;</a></li>
+				<li><a href="?state=${state }&page=${pc.nextPage }&search=${search }">&raquo;</a></li>
 			</ul>
 		</div>
 	</div>

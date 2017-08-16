@@ -31,7 +31,28 @@
 						<th>${student.qq }</th>
 						<th>${student.majorClass }</th>
 						<th>${student.college }</th>
-						<th>${student.state }</th>
+						<th>
+								<c:choose>
+									<c:when test="${student.state == 0 }">
+										未面试
+									</c:when>
+									<c:when test="${student.state == 1 }">
+										面试中
+									</c:when>
+									<c:when test="${student.state == 2 }">
+										面试成功
+									</c:when>
+									<c:when test="${student.state == 3 }">
+										面试失败
+									</c:when>
+									<c:when test="${student.state == 4 }">
+										已经删除
+									</c:when>
+									<c:otherwise>
+										未知
+									</c:otherwise>
+								</c:choose>
+							</th>
 						<th>${student.signupTime }</th>
 					</tr>
 				</table>

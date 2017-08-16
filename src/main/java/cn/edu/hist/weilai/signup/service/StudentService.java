@@ -69,4 +69,14 @@ public class StudentService extends MongoBaseDao<Student>{
 		Document doc = getCollection().find(eq("phone",phone)).first();
 		return toEntity(doc);
 	}
+	public List<Student> queryAllStudent(int ...states){
+		
+		Bson[] eqs = new Bson[states.length];
+		for(int i=-1;++i<states.length;) {
+			 eqs[i] = eq("state",states[i]);
+		}
+		Bson filter = or(eqs);
+		MongoCursor<Document> results = getCollection().find(filter).iterator();
+		return MongoEntityUtils.toList(results, Student.class);
+	}
 }

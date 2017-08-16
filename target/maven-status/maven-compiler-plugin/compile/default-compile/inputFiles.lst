@@ -13,8 +13,11 @@
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/utils/TextUtils.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/admin/View.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/admin/Index.java
+/home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/admin/InterviewResult.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/entity/StudentState.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/entity/Entity.java
+/home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/entity/model/ScoreStatistics.java
+/home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/service/StatisticsService.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/BaseServlet.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/dao/MongoBaseDao.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/dao/MongoUtils.java
@@ -24,6 +27,8 @@
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/apitools/ReturnResult.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/apitools/ApiTools.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/service/InterviewService.java
+/home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/entity/model/AverageScore.java
+/home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/admin/Statistics.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/service/StudentService.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/entity/Student.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/admin/Login.java

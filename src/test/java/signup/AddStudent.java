@@ -14,15 +14,8 @@ import cn.edu.hist.weilai.signup.service.StudentService;
 public class AddStudent {
 	
 	public static void main(String[] args) {
-		StudentService studentService = new StudentService();
-		for(int i=0;i++ < 99;) {
-			List<Student> list = studentService.queryAllEntity();
-			if(i%3==0) {
-				Student s = list.get(i);
-				s.setState(StudentState.INTERVIEW);
-				studentService.updateEntity(s);
-			}
-		}
-		System.out.println(studentService.getPageCutBySearch(1, 12, "song"));
+		
+		double d = new Double(4)/6;
+		System.out.println(d);
 	}
 }

@@ -15,7 +15,7 @@ public class InterviewItemService extends MongoBaseDao<InterviewItem>{
 		List<InterviewItem> list = queryAllEntity();
 		int score = 0;
 		for(InterviewItem ivi:list) {
-			score += ivi.getScore();
+			score += ivi.getPerfectScore();
 		}
 		return score;
 	}
