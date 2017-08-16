@@ -17,7 +17,7 @@
 						<c:choose>
 							<c:when test="${state == 0 }">
 								<option value="">全部</option>
-								<option value="0" selected>已报名</option>
+								<option value="0" selected>未面试</option>
 								<option value="1">面试中</option>
 								<option value="2">面试成功</option>
 								<option value="3">面试失败</option>
@@ -57,7 +57,7 @@
 							</c:when>
 							<c:otherwise>
 								<option value="">全部</option>
-								<option value="0">已报名</option>
+								<option value="0">未面试</option>
 								<option value="1">面试中</option>
 								<option value="2">面试成功</option>
 								<option value="3">面试失败</option>
@@ -101,6 +101,7 @@
 							<th>学院</th>
 							<th>状态</th>
 							<th>报名时间</th>
+							<th>面试结果</th>
 						</tr>
 					</thead>
 					<c:forEach var="item" items="${pc.data }">
@@ -114,6 +115,7 @@
 							<th>${item.college }</th>
 							<th>${item.state }</th>
 							<th>${item.signupTime }</th>
+							<th><a href="interviewOne?id=${item._id }" style="color:#FFF;" class="am-btn am-btn-primary am-btn-xs">面试结果</a></th>
 						</tr>
 					</c:forEach>
 					<tr>

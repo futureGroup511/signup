@@ -1,7 +1,7 @@
 package cn.edu.hist.weilai.signup.service;
 
+import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Filters.or;
 
 import org.bson.Document;
 
@@ -19,7 +19,7 @@ public class InterviewService extends MongoBaseDao<Interview>{
 	
 	//倒叙查找，返回最新的一条！
 	public Interview getByAdminAndStudent(String admin_id,String student_id) {
-		Document doc = getCollection().find(or(eq("admin_id",admin_id),eq("student_id",student_id))).sort(new BasicDBObject("_id", -1)).first();
+		Document doc = getCollection().find(and(eq("admin_id",admin_id),eq("student_id",student_id))).sort(new BasicDBObject("_id", -1)).first();
 		return toEntity(doc);
 	}
 	//若此管理员评论过，则替换

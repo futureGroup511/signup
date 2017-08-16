@@ -6,6 +6,7 @@ cn/edu/hist/weilai/signup/listener/AppStart.class
 cn/edu/hist/weilai/signup/servlet/admin/Interview.class
 cn/edu/hist/weilai/signup/servlet/admin/View.class
 cn/edu/hist/weilai/signup/servlet/Signup.class
+cn/edu/hist/weilai/signup/servlet/admin/Set.class
 cn/edu/hist/weilai/signup/service/InterviewItemService.class
 cn/edu/hist/weilai/signup/entity/StudentState.class
 cn/edu/hist/weilai/signup/servlet/BaseServlet.class
@@ -26,5 +27,6 @@ cn/edu/hist/weilai/signup/servlet/admin/Index.class
 cn/edu/hist/weilai/signup/apitools/ApiTools.class
 cn/edu/hist/weilai/signup/utils/CheckUtils.class
 cn/edu/hist/weilai/signup/entity/Entity.class
+cn/edu/hist/weilai/signup/filter/AdminFilter.class
 cn/edu/hist/weilai/signup/service/StudentService.class
 cn/edu/hist/weilai/signup/dao/MongoEntityUtils.class

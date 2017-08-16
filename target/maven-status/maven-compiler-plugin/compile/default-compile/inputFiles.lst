@@ -3,6 +3,7 @@
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/api/Signup.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/entity/Admin.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/Signup.java
+/home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/admin/Set.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/dao/MongoEntityUtils.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/admin/InterviewOne.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/service/AdminService.java
@@ -26,4 +27,5 @@
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/service/StudentService.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/entity/Student.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/admin/Login.java
+/home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/filter/AdminFilter.java
 /home/song/eclipse-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/admin/Interview.java
