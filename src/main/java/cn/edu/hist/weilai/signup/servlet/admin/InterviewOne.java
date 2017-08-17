@@ -67,7 +67,7 @@ public class InterviewOne extends BaseServlet{
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//后台都是自己小组的人，不做各种验证！
+		//后台都是自己小组的人，,不做各种验证！
 		JSONObject commentItems = new JSONObject();
 		int score = 0;
 		List<InterviewItem> items = interviewItemService.queryAllEntity();
