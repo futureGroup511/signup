@@ -15,7 +15,10 @@ public class AddStudent {
 	
 	public static void main(String[] args) {
 		
-		double d = new Double(4)/6;
-		System.out.println(d);
+		StudentService ss = new StudentService();
+		for(int i=0;i++ <100;) {
+			Student s = new Student("wang","信工","物联网工程","110", "3421312",StudentState.NORMAL);
+			ss.insertEntity(s);
+		}
 	}
 }

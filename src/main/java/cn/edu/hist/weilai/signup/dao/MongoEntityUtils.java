@@ -1,4 +1,4 @@
-package cn.edu.hist.weilai.signup.dao;
+ package cn.edu.hist.weilai.signup.dao;
 /*
 @Author:song
 @Date:2017年8月3日

@@ -5,6 +5,15 @@
 <head>
 <jsp:include page="../common/head.jsp"></jsp:include>
 <title>title</title>
+<script>
+	function selectall() {
+		var mycheckbox = document.getElementById('select1');
+		var checkboxs = document.getElementsByName('choose');
+		for (var i = 0; i < checkboxs.length; i++) {
+			checkboxs[i].checked = mycheckbox.checked;
+		}
+	}
+</script>
 </head>
 <body>
 	<jsp:include page="common/header.jsp"></jsp:include>
@@ -89,6 +98,7 @@
 	<div class="am-g">
 		<div class="am-u-sm-12">
 			<div class="am-scrollable-horizontal">
+			<form action="studentmanage" method="post">
 				<table
 					class="am-table am-table-bordered am-table-striped am-text-nowrap">
 					<thead>
@@ -113,8 +123,7 @@
 							<th>${item.qq }</th>
 							<th>${item.majorClass }</th>
 							<th>${item.college }</th>
-							<th>
-								<c:choose>
+							<th><c:choose>
 									<c:when test="${item.state == 0 }">
 										未面试
 									</c:when>
@@ -133,25 +142,28 @@
 									<c:otherwise>
 										未知
 									</c:otherwise>
-								</c:choose>
-							</th>
+								</c:choose></th>
 							<th>${item.signupTime }</th>
-							<th><a href="interviewResult?id=${item._id }" style="color:#FFF;" class="am-btn am-btn-primary am-btn-xs">面试结果</a></th>
+							<th><a href="interviewResult?id=${item._id }"
+								style="color: #FFF;" class="am-btn am-btn-primary am-btn-xs">面试结果</a></th>
 						</tr>
 					</c:forEach>
 					<tr>
 						<th>
-							<button type="button" class="am-btn am-btn-success am-btn-xs">全选</button>
+							<button type="button" class="am-btn am-btn-success am-btn-xs">
+								全选<input type="checkbox" name="select" id="select1"
+onclick="selectall()" />
+							</button>
 						</th>
 						<th>
-							<button type="button" class="am-btn am-btn-success am-btn-xs">面试</button>
+							<button type="submit" class="am-btn am-btn-success am-btn-xs" >面试</button>
 						</th>
 						<th>
 							<button type="button" class="am-btn am-btn-danger am-btn-xs">删除</button>
 						</th>
-
 					</tr>
 				</table>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -160,7 +172,8 @@
 	<div class="am-g">
 		<div class="am-u-sm-12 am-center">
 			<ul class="am-pagination">
-				<li><a href="?state=${state }&page=${pc.prePage }&search=${search }">&laquo;</a></li>
+				<li><a
+					href="?state=${state }&page=${pc.prePage }&search=${search }">&laquo;</a></li>
 				<c:if test="${pc.currPage >3 }">
 					<li><a href="?state=${state }&page=1&search=${search }">1</a></li>
 				</c:if>
@@ -176,7 +189,8 @@
 								href="?state=${state }&page=${item }&search=${search }">${item }</a></li>
 						</c:when>
 						<c:when test="${item > 0 }">
-							<li><a href="?state=${state }&page=${item }&search=${search }">${item }</a></li>
+							<li><a
+								href="?state=${state }&page=${item }&search=${search }">${item }</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
@@ -184,9 +198,11 @@
 					<li><a class="disabled">...</a></li>
 				</c:if>
 				<c:if test="${pc.currPage +2 < pc.pageNum }">
-					<li><a href="?state=${state }&page=${pc.pageNum }&search=${search }">${pc.pageNum }</a></li>
+					<li><a
+						href="?state=${state }&page=${pc.pageNum }&search=${search }">${pc.pageNum }</a></li>
 				</c:if>
-				<li><a href="?state=${state }&page=${pc.nextPage }&search=${search }">&raquo;</a></li>
+				<li><a
+					href="?state=${state }&page=${pc.nextPage }&search=${search }">&raquo;</a></li>
 			</ul>
 		</div>
 	</div>

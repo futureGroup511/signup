@@ -19,6 +19,6 @@
   <filter-mapping>
   	<filter-name>AdminFilter</filter-name>
   	<url-pattern>/AdminFilter</url-pattern>
-  </filter-mapping>
-
+</filter-mapping>
+    
 </web-app>

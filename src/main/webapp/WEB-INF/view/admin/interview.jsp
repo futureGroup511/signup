@@ -29,6 +29,7 @@
 	<div class="am-g">
 		<div class="am-u-sm-12">
 			<div class="am-scrollable-horizontal">
+			<form action=""></form>
 			  <table class="am-table am-table-bordered am-table-striped am-text-nowrap">
 			  	<thead>
 				  <tr>
@@ -59,6 +60,7 @@
 		</div>
 	</div><!-- am-g -->
 	<!-- pagecut -->
+	
 	<div class="am-g">
 		<div class="am-u-sm-12 am-center">
 			<ul class="am-pagination">
