@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 - - [27/Aug/2017:10:59:30 +0800] "GET /signup/admin/view HTTP/1.1" 200 9997 http-bio-8080-exec-2 2883
+0:0:0:0:0:0:0:1 - - [27/Aug/2017:10:59:35 +0800] "POST /signup/admin/studentmanage HTTP/1.1" 200 - http-bio-8080-exec-4 7
