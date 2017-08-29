@@ -1,5 +1,6 @@
 package cn.edu.hist.weilai.signup.service;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -16,6 +17,7 @@ import cn.edu.hist.weilai.signup.entity.model.ScoreStatistics;
 @Description:
 */
 public class StatisticsService {
+
 	public Set<ScoreStatistics> getStatistics(){
 		Set<ScoreStatistics> set = new TreeSet<>();
 		StudentService studentService = new StudentService();
@@ -36,4 +38,24 @@ public class StatisticsService {
 		}
 		return set;
 	}
+
+	public int[] getWeakSignCount(){
+
+		StudentService studentService = new StudentService();
+        Calendar start = Calendar.getInstance();
+        start.set(Calendar.HOUR_OF_DAY,0);
+        start.set(Calendar.MINUTE,0);
+        start.set(Calendar.SECOND,0);
+        Calendar end = null;
+        int[] weakSignCount = new int[7];
+        for(int i=6;i>=0;i--){
+            int x = studentService.queryCountByCalendar(start,end);
+            weakSignCount[i] = x;
+            end = (Calendar) start.clone();
+            start.add(Calendar.DAY_OF_YEAR,-1);
+        }
+		return weakSignCount;
+	}
+
+
 }

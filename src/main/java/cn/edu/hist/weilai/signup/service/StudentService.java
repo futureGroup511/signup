@@ -4,7 +4,11 @@ import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.or;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.regex;
+import static com.mongodb.client.model.Filters.lt;
+import static com.mongodb.client.model.Filters.gte;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 
 import org.bson.Document;
@@ -79,4 +83,17 @@ public class StudentService extends MongoBaseDao<Student>{
 		MongoCursor<Document> results = getCollection().find(filter).iterator();
 		return MongoEntityUtils.toList(results, Student.class);
 	}
+	public int queryCountByCalendar(Calendar c1,Calendar c2){
+
+		if(c2==null){
+			Long count = getCollection().count(gte("signupTime",c1.getTime()));
+			return count.intValue();
+		}
+		Long count = getCollection().count(and(gte("signupTime",c1.getTime()),lt("signupTime",c2.getTime())));
+		return count.intValue();
+	}
+    public int queryCountByState(int state){
+        Long count = getCollection().count(eq("state",state));
+        return count.intValue();
+    }
 }

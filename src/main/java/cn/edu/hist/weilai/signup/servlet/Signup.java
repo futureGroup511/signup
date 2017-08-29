@@ -26,5 +26,4 @@ public class Signup extends BaseServlet{
 		// TODO Auto-generated method stub
 		forward("signup", req, resp);
 	}
-	
 }

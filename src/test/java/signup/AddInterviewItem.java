@@ -2,6 +2,8 @@ package signup;
 
 import cn.edu.hist.weilai.signup.entity.InterviewItem;
 import cn.edu.hist.weilai.signup.service.InterviewItemService;
+import cn.edu.hist.weilai.signup.service.StatisticsService;
+import cn.edu.hist.weilai.signup.servlet.admin.Statistics;
 
 /*
 @Author:song
@@ -11,10 +13,10 @@ import cn.edu.hist.weilai.signup.service.InterviewItemService;
 public class AddInterviewItem {
 	
 	public static void main(String[] args) {
-		InterviewItemService its = new InterviewItemService();
-		its.insertEntity(new InterviewItem("number","兴趣",20));
-		its.insertEntity(new InterviewItem("number","学习",20));
-		its.insertEntity(new InterviewItem(InterviewItem.TYPE_TEXT,"亮点",0));
-		its.insertEntity(new InterviewItem(InterviewItem.TTYPE_TEXTAREA,"亮点2",0));
+		StatisticsService ss = new StatisticsService();
+
+		for(int x:ss.getWeakSignCount()){
+			System.out.println(x);
+		}
 	}
 }

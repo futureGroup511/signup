@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <jsp:include page="../common/head.jsp"></jsp:include>
@@ -20,7 +21,57 @@
 <hr>
 <div class="height20"></div>
 <div class="am-g">
-	
+    <div class="am-u-sm-12">
+    	<h2>实时信息</h2>
+    	<p>在线人数：322，报名人数：29988，总访问量：4327933</p>
+    </div>
+    <div class="am-u-sm-4">
+        <h4>报名日志：</h4>
+        <table class="am-table am-table-bordered am-table-striped am-table-compact">
+          <thead>
+          <tr>
+            <th>IP</th>
+            <th>姓名</th>
+            <th>时间</th>
+          </tr>
+          </thead>
+          <tbody>
+                <c:forEach var="item" items="${signupLogs }">
+					<tr class="am-link-muted">
+					    <th>${item.ip }</th>
+					    <th>${item.name }</th>
+					    <th>${item.signupTime }</th>
+				  	</tr>
+				</c:forEach>
+
+          </tbody>
+        </table>
+    </div>
+    <div class="am-u-sm-8">
+        <h4>访问日志：</h4>
+
+        <table class="am-table am-table-bordered am-table-striped am-table-compact">
+          <thead>
+          <tr>
+            <th>IP</th>
+            <th>电脑用户</th>
+            <th>网址</th>
+            <th>时间</th>
+          </tr>
+          </thead>
+          <tbody>
+                <c:forEach var="item" items="${visitLogs }">
+					<tr class="am-link-muted">
+					    <th>${item.ip }</th>
+					    <th>${item.host }</th>
+					    <th>${item.uri }</th>
+					    <th>${item.visitTime }</th>
+				  	</tr>
+				</c:forEach>
+          </tbody>
+        </table>
+
+    </div>
 </div>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
@@ -65,7 +116,7 @@
         	        {
         	            name:'人数',
         	            type:'line',
-        	            data:[30, 12, 15, 67, 32, 11, 99],
+        	            data: ${weakCount},
         	            markPoint: {
         	               
         	            },
@@ -88,10 +139,10 @@
                     type: 'pie',
                     radius: '55%',
                     data:[
-                        {value:235, name:'未面试235'},
-                        {value:274, name:'正在面试274'},
-                        {value:310, name:'面试成功310'},
-                        {value:335, name:'面试失败335'}
+                        {value:${NORMAL}, name:'未面试${NORMAL}'},
+                        {value:${INTERVIEW}, name:'正在面试${INTERVIEW}'},
+                        {value:${INTERVIEW_SUCCESS}, name:'面试成功${INTERVIEW_SUCCESS}'},
+                        {value:${INTERVIEW_FAIL}, name:'面试失败${INTERVIEW_FAIL} '}
                     ]
                 }
             ]

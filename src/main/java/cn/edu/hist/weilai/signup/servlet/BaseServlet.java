@@ -7,13 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.edu.hist.weilai.signup.entity.SignupLog;
+import cn.edu.hist.weilai.signup.service.*;
 import org.apache.log4j.Logger;
-
-import cn.edu.hist.weilai.signup.service.AdminService;
-import cn.edu.hist.weilai.signup.service.InterviewItemService;
-import cn.edu.hist.weilai.signup.service.InterviewService;
-import cn.edu.hist.weilai.signup.service.StatisticsService;
-import cn.edu.hist.weilai.signup.service.StudentService;
 
 /*
 @Author:song
@@ -36,6 +32,8 @@ public class BaseServlet extends HttpServlet{
 	protected InterviewItemService interviewItemService = new InterviewItemService();
 	protected InterviewService interviewService = new InterviewService();
 	protected StatisticsService statisticsService = new StatisticsService();
+	protected VisitLogService visitLogService = new VisitLogService();
+	protected SignupLogService signupLogService = new SignupLogService();
 	
 	public BaseServlet() {
 		// TODO Auto-generated constructor stub

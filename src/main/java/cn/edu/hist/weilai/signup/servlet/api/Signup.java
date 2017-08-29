@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.edu.hist.weilai.signup.apitools.ApiTools;
+import cn.edu.hist.weilai.signup.entity.SignupLog;
 import cn.edu.hist.weilai.signup.entity.Student;
 import cn.edu.hist.weilai.signup.entity.StudentState;
 import cn.edu.hist.weilai.signup.servlet.BaseServlet;
@@ -45,6 +46,9 @@ public class Signup extends BaseServlet{
 			ApiTools.respResult(0, resp);
 			return;
 		}
+		SignupLog signupLog = new SignupLog(values[0],req.getRemoteAddr(),"",req.getSession().getId());
+		signupLogService.insertEntity(signupLog);
+
 		ApiTools.respResult(3, resp);
 	}
 }
