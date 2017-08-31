@@ -23,7 +23,7 @@
 <div class="am-g">
     <div class="am-u-sm-12">
     	<h2>实时信息</h2>
-    	<p>在线人数：322，报名人数：29988，总访问量：4327933</p>
+    	<p>在线人数：${onlineNum}，报名人数：${signupNum}，总访问量：${visitNum}</p>
     </div>
     <div class="am-u-sm-4">
         <h4>报名日志：</h4>

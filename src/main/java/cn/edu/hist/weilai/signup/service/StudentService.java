@@ -11,6 +11,9 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
 
+import cn.edu.hist.weilai.signup.utils.TextUtils;
+import com.mongodb.client.model.Filters;
+import org.apache.log4j.Logger;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -28,6 +31,7 @@ import cn.edu.hist.weilai.signup.utils.PageCut;
 @Description:
 */
 public class StudentService extends MongoBaseDao<Student>{
+	private Logger logger = Logger.getLogger(this.getClass());
 	public PageCut<Student> getPageCutBySearch(int page,int size,String search){
 		if(page < 1) {
 			page = 1;
@@ -69,6 +73,23 @@ public class StudentService extends MongoBaseDao<Student>{
 		pc.setData(articles);
 		return pc;
 	}
+
+	public List<Student> queryAll(int state,String search){
+		Bson filters = null;
+		if(! CheckUtils.hasNull(search)) {
+			String regStr = String.format("\\S*%s\\S*", search);
+			filters = Filters.or(regex("name", regStr), regex("phone", regStr), regex("college", regStr), regex("majorClass", regStr), regex("qq", regStr));
+		}
+		if(state > -1){
+			filters = Filters.and(eq("state",state),filters==null?new BasicDBObject():filters);
+		}
+		if(filters == null){
+			filters = new BasicDBObject();
+		}
+		MongoCursor<Document> results = getCollection().find(filters).iterator();
+		return MongoEntityUtils.toList(results, Student.class,20);
+	}
+
 	public Student getByPhone(String phone) {
 		Document doc = getCollection().find(eq("phone",phone)).first();
 		return toEntity(doc);

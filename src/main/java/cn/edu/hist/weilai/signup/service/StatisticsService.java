@@ -18,6 +18,12 @@ import cn.edu.hist.weilai.signup.entity.model.ScoreStatistics;
 */
 public class StatisticsService {
 
+	public static int online = 0;
+
+	public static synchronized void oneLineAdd(int x){
+		online += x;
+	}
+
 	public Set<ScoreStatistics> getStatistics(){
 		Set<ScoreStatistics> set = new TreeSet<>();
 		StudentService studentService = new StudentService();

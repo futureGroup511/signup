@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import cn.edu.hist.weilai.signup.entity.SignupLog;
 import cn.edu.hist.weilai.signup.entity.StudentState;
 import cn.edu.hist.weilai.signup.entity.VisitLog;
+import cn.edu.hist.weilai.signup.service.StatisticsService;
 import cn.edu.hist.weilai.signup.servlet.BaseServlet;
 import cn.edu.hist.weilai.signup.servlet.Signup;
 
@@ -47,6 +48,9 @@ public class Index  extends BaseServlet{
 		List<SignupLog> signups = signupLogService.getNew(10);
 		req.setAttribute("visitLogs",visitLogs);
 		req.setAttribute("signups",signups);
+		req.setAttribute("onlineNum", StatisticsService.online);
+		req.setAttribute("signupNum",studentService.countIntEntity());
+		req.setAttribute("visitNum",visitLogService.countEntity());
 		forward("admin/index", req, resp);
 	}
 }

@@ -5,13 +5,33 @@
 <head>
 <jsp:include page="../common/head.jsp"></jsp:include>
 <title>title</title>
+<script src="${staticUrl}js/jquery-3.1.1.min.js"></script>
 <script>
-	function selectall() {
-		var mycheckbox = document.getElementById('select1');
-		var checkboxs = document.getElementsByName('choose');
-		for (var i = 0; i < checkboxs.length; i++) {
-			checkboxs[i].checked = mycheckbox.checked;
+	function changeState(id,toState) {
+		var url = "changeState";
+		var postData = {
+		    'id':id,
+		    'toState':toState
 		}
+		$.post(url,postData,function(data,state){
+		    console.log(data)
+			try{
+				var resp = eval('(' + data + ')');
+			}catch(e){
+				alert("服务端错误！");
+				location.reload();
+				return;
+			}
+			if(resp.result == 0){
+				alert("成功！");
+				location.reload()
+				return
+			}else{
+				alert(resp.message);
+				location.reload()
+				return;
+			}
+		});
 	}
 </script>
 </head>
@@ -88,9 +108,15 @@
 		</div>
 	</form>
 	<div class="am-g">
-		<div class="am-u-sm-6">
+	    <div class="am-u-sm-12">
+	        <span class="am-text-success">${remind}</span>
+	    </div>
+	</div>
+	<div class="am-g">
+		<div class="am-u-sm-12">
 			<span>共找到</span><span class="am-text-warning">${pc.count }</span><span>个结果,当前</span><span
 				class="am-text-warning">${pc.currPage } / ${pc.pageNum }</span><span>页</span>
+			<a target="_blank" href="downloadExcel?state=${state}&search=${search}">,下载<span class="am-text-warning">${pc.count }</span>个结果的Excel</a>
 		</div>
 	</div>
 	<!--  am-g -->
@@ -98,7 +124,6 @@
 	<div class="am-g">
 		<div class="am-u-sm-12">
 			<div class="am-scrollable-horizontal">
-			<form action="studentmanage" method="post">
 				<table
 					class="am-table am-table-bordered am-table-striped am-text-nowrap">
 					<thead>
@@ -112,58 +137,71 @@
 							<th>状态</th>
 							<th>报名时间</th>
 							<th>面试结果</th>
+							<th>面试Ta</th>
+							<th>取消面试</th>
+							<th>删除</th>
 						</tr>
 					</thead>
 					<c:forEach var="item" items="${pc.data }">
-						<tr class="am-link-muted">
-							<th><input type="checkbox" name="choose"
-								value="${item._id }"></th>
-							<th>${item.name }</th>
-							<th>${item.phone }</th>
-							<th>${item.qq }</th>
-							<th>${item.majorClass }</th>
-							<th>${item.college }</th>
-							<th><c:choose>
+						<tr>
+							<td><input type="checkbox" name="choose"
+								value="${item._id }"></td>
+							<td>${item.name }</td>
+							<td>${item.phone }</td>
+							<td>${item.qq }</td>
+							<td>${item.majorClass }</td>
+							<td>${item.college }</td>
+							<td><c:choose>
 									<c:when test="${item.state == 0 }">
-										未面试
+										<span>未面试</span>
 									</c:when>
 									<c:when test="${item.state == 1 }">
 										面试中
 									</c:when>
 									<c:when test="${item.state == 2 }">
-										面试成功
+										<span class="am-text-success">面试成功</span>
 									</c:when>
 									<c:when test="${item.state == 3 }">
-										面试失败
+										<span class="am-text-danger">面试失败</span>
 									</c:when>
 									<c:when test="${item.state == 4 }">
-										已经删除
+										<span class="am-text-warning">已经删除</span>
 									</c:when>
 									<c:otherwise>
 										未知
 									</c:otherwise>
-								</c:choose></th>
-							<th>${item.signupTime }</th>
-							<th><a href="interviewResult?id=${item._id }"
-								style="color: #FFF;" class="am-btn am-btn-primary am-btn-xs">面试结果</a></th>
+								</c:choose></td>
+							<td>${item.signupTime }</td>
+							<td><a href="interviewResult?id=${item._id }"
+								style="color: #FFF;" class="am-btn am-btn-primary am-btn-xs">面试结果</a></td>
+							<c:choose>
+                            	<c:when test="${item.state == 0 }">
+                            		<th><button class="am-btn am-btn-xs am-btn-success" onclick="changeState('${item._id}', 1)">面试Ta</button></th>
+                            	    <td></td>
+                            	    <th><button class="am-btn am-btn-xs am-btn-danger" onclick="changeState('${item._id}',4)">删除</button></th>
+                            	</c:when>
+                            	<c:when test="${item.state == 1 }">
+                            	    <td></td>
+                                    <th><button class="am-btn am-btn-xs am-btn-warning" onclick="changeState('${item._id}', 0)">取消面试</button></th>
+                                    <th><button class="am-btn am-btn-xs am-btn-danger" onclick="changeState('${item._id}',4)">删除</button></th>
+                            	</c:when>
+                                <c:when test="${item.state == 4 }">
+                            	    <td></td>
+                                    <th></th>
+                                    <th><button class="am-btn am-btn-xs am-btn-success" onclick="changeState('${item._id}',0)">取消删除至未面试</button></th>
+                            	</c:when>
+
+                            	<c:otherwise>
+                                    <td></td>
+                                    <td></td>
+                                    <td><button class="am-btn am-btn-xs am-btn-danger" onclick="changeState('${item._id}',4)">删除</button>
+                                    <button class="am-btn am-btn-xs am-btn-danger" onclick="changeState('${item._id}',1)">取消面试成绩</button></td>
+                            	</c:otherwise>
+                            </c:choose>
 						</tr>
 					</c:forEach>
-					<tr>
-						<th>
-							<button type="button" class="am-btn am-btn-success am-btn-xs">
-								全选<input type="checkbox" name="select" id="select1"
-onclick="selectall()" />
-							</button>
-						</th>
-						<th>
-							<button type="submit" class="am-btn am-btn-success am-btn-xs" >面试</button>
-						</th>
-						<th>
-							<button type="button" class="am-btn am-btn-danger am-btn-xs">删除</button>
-						</th>
-					</tr>
+
 				</table>
-				</form>
 			</div>
 		</div>
 	</div>

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.edu.hist.weilai.signup.entity.SignupLog;
+import cn.edu.hist.weilai.signup.entity.VisitLog;
 import cn.edu.hist.weilai.signup.service.*;
 import org.apache.log4j.Logger;
 
@@ -34,7 +35,14 @@ public class BaseServlet extends HttpServlet{
 	protected StatisticsService statisticsService = new StatisticsService();
 	protected VisitLogService visitLogService = new VisitLogService();
 	protected SignupLogService signupLogService = new SignupLogService();
-	
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		VisitLog visitLog = new VisitLog(req.getRemoteHost()+req.getRemoteUser(),req.getRemoteAddr(),req.getRequestURI(),req.getSession().getId());
+		visitLogService.insertEntity(visitLog);
+		super.service(req, resp);
+	}
+
 	public BaseServlet() {
 		// TODO Auto-generated constructor stub
 		logger = Logger.getLogger(this.getClass());

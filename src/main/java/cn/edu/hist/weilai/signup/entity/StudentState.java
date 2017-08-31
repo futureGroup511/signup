@@ -23,7 +23,8 @@ public class StudentState {
 			return "面试失败";
 		case DELETE:
 			return "已删除";
+		default:
+			return "所有";
 		}
-		return "未知";
 	}
 }

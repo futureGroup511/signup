@@ -35,11 +35,24 @@
 							<th>查看详细评分</th>
 						</tr>
 					</thead>
+
 					<c:forEach var="item" items="${statistics }" varStatus="status">
 						<tr class="am-link-muted">
 							<td>${status.index +1 }</td>
 							<td>${item.studentName }</td>
-							<td>${item.studentState }</td>
+							<td>
+							<c:choose>
+                                <c:when test="${item.studentState == '面试成功'}">
+                                    <span class="am-text-success">${item.studentState}</span>
+                                </c:when>
+                                <c:when test="${item.studentState == '面试失败'}">
+                                    <span class="am-text-danger">${item.studentState}</span>
+                                </c:when>
+                                <c:otherwise>
+                                    <span>${item.studentState}</span>
+                                </c:otherwise>
+                            </c:choose>
+                            </td>
 							<td>${item.scoreOfPerfect }</td>
 							<td>${item.score }</td>
 							<td><a class="am-btn am-btn-xs am-btn-success" style="color:#FFF;" href="interviewResult?id=${item.student_id }">详细评分</a></td>
