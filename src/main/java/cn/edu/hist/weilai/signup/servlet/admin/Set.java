@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.edu.hist.weilai.signup.entity.InterviewItem;
 import cn.edu.hist.weilai.signup.servlet.BaseServlet;
+import cn.edu.hist.weilai.signup.servlet.api.Signup;
 import cn.edu.hist.weilai.signup.utils.CheckUtils;
 import cn.edu.hist.weilai.signup.utils.TextUtils;
 
@@ -29,7 +30,9 @@ public class Set extends BaseServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		//获得操作，
+
 		String o = req.getParameter("o");
 		//如果操作为deleteInterviewItem，则删除对应的InterviewItem
 		if("deleteInterviewItem".equals(o)) {
@@ -39,8 +42,19 @@ public class Set extends BaseServlet{
 				req.setAttribute("remind", "删除成功！");
 			}
 		}
+		if("closeSignup".equals(o)) {
+			Signup.canSignup = false;
+			req.setAttribute("warning", "已经关闭报名，学生将无法报名！");
+		}
+
+		if("openSignup".equals(o)) {
+			Signup.canSignup = true;
+			req.setAttribute("remind", "开启报名成功！");
+		}
+
 		List<InterviewItem> interviewItems = interviewItemService.queryAllEntity();
 		req.setAttribute("interviewItems", interviewItems);
+		req.setAttribute("canSignup",Signup.canSignup);
 		forward("admin/set", req, resp);
 	}
 	

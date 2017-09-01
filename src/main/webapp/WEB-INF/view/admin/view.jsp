@@ -128,7 +128,6 @@
 					class="am-table am-table-bordered am-table-striped am-text-nowrap">
 					<thead>
 						<tr>
-							<th>选择</th>
 							<th>姓名</th>
 							<th>电话</th>
 							<th>QQ</th>
@@ -144,8 +143,6 @@
 					</thead>
 					<c:forEach var="item" items="${pc.data }">
 						<tr>
-							<td><input type="checkbox" name="choose"
-								value="${item._id }"></td>
 							<td>${item.name }</td>
 							<td>${item.phone }</td>
 							<td>${item.qq }</td>

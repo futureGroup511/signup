@@ -11,7 +11,10 @@
 	<div class="height20"></div>
 	<div class="am-g">
 		<div class="am-u-sm-12">
-			<p class="am-text-success">只统计状态为：面试中、面试成功、面试失败的学生</p>
+		<p>
+			<span class="am-text-default">只统计状态为：面试中、面试成功、面试失败的学生</span>
+			<a href="downloadExcel?result=statistics" class="am-text-success">下载成绩统计Excel</a>
+		</p>
 		</div>
 	</div>
 	<div class="am-g">

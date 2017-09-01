@@ -20,8 +20,15 @@
 	<div class="am-g">
 		<div class="am-u-sm-12">
 			<h2>报名状态：</h2>
-			已经开启报名
-			<button type="button" class="am-btn am-btn-danger">关闭报名</button>
+			<c:if test="${canSignup}">
+                已经开启报名
+                <a href="?o=closeSignup" class="am-btn am-btn-danger">关闭报名</a>
+			</c:if>
+            <c:if test="${!canSignup}">
+                已经关闭报名
+                <a href="?o=openSignup" class="am-btn am-btn-success">开启报名</a>
+                <h1 class="am-text-danger">报名已经关闭，学生将无法报名！</h1>
+			</c:if>
 		</div>
 	</div>
 	<hr>

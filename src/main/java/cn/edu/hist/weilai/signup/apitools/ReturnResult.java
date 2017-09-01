@@ -9,8 +9,9 @@ public class ReturnResult {
 	public static final int REQUEST_ERROR = 1;
 	public static final int STUDENT_EXIST = 2;
 	public static final int SERVER_ERROR = 3;
+	public static final int SIGNUP_CLOSE = 4;
 	
-	private static final String[] messages = {"成功","请求错误","用户已经存在","服务器错误"};
+	private static final String[] messages = {"成功","请求错误","用户已经存在","服务器错误","报名已经关闭"};
 	
 	private int result ;
 	private String message ;
@@ -21,7 +22,7 @@ public class ReturnResult {
 	}
 	
 	public String toJson() {
-		return String.format("{\"result\":,%s\"message\":\"%s\"}", result,message);
+		return String.format("{\"result\":%s,\"message\":\"%s\"}", result,message);
 	}
 
 	@Override

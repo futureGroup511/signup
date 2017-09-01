@@ -29,6 +29,7 @@ public class View extends BaseServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		String search = req.getParameter("search");
 		if(! CheckUtils.hasNull(search)) {
 			search = new String(search.getBytes("iso8859-1"));

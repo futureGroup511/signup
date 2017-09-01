@@ -23,13 +23,9 @@ public class Statistics extends BaseServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		Set<ScoreStatistics> statistics = statisticsService.getStatistics();
 		req.setAttribute("statistics", statistics);
-		int x =0;
-		for(ScoreStatistics ss:statistics) {
-			x++;
-			logger.debug(x+":" + ss);
-		}
 		forward("admin/statistics", req, resp);
 	}
 

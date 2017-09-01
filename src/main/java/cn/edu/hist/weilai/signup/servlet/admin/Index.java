@@ -31,7 +31,7 @@ public class Index  extends BaseServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		req.setAttribute("navNow1", "nav-a-now");
+
 		int[] weakCount = statisticsService.getWeakSignCount();
 		StringBuilder weakCountStr = new StringBuilder("[");
 		for(int x:weakCount){

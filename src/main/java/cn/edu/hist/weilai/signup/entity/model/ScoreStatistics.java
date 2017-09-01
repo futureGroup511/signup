@@ -11,6 +11,7 @@ public class ScoreStatistics implements Comparable<ScoreStatistics>{
 	private String student_id;
 	private String studentName ;
 	private String studentState;
+	private String studentPhone;
 	private int score = 0;//得分
 	private int perfectScore = 0;//总分
 	private double scoreOfPerfect = 0;//分数占总分的百分比
@@ -52,13 +53,6 @@ public class ScoreStatistics implements Comparable<ScoreStatistics>{
 		return 1;
 	}
 
-	@Override
-	public String toString() {
-		return "ScoreStatistics [student_id=" + student_id + ", studentName=" + studentName + ", studentState="
-				+ studentState + ", score=" + score + ", perfectScore=" + perfectScore + ", scoreOfPerfect="
-				+ scoreOfPerfect + ", adminNum=" + adminNum + "]";
-	}
-
 	public String getStudent_id() {
 		return student_id;
 	}
@@ -73,6 +67,22 @@ public class ScoreStatistics implements Comparable<ScoreStatistics>{
 
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
+	}
+
+	public String getStudentState() {
+		return studentState;
+	}
+
+	public void setStudentState(String studentState) {
+		this.studentState = studentState;
+	}
+
+	public String getStudentPhone() {
+		return studentPhone;
+	}
+
+	public void setStudentPhone(String studentPhone) {
+		this.studentPhone = studentPhone;
 	}
 
 	public int getScore() {
@@ -91,6 +101,14 @@ public class ScoreStatistics implements Comparable<ScoreStatistics>{
 		this.perfectScore = perfectScore;
 	}
 
+	public double getScoreOfPerfect() {
+		return scoreOfPerfect;
+	}
+
+	public void setScoreOfPerfect(double scoreOfPerfect) {
+		this.scoreOfPerfect = scoreOfPerfect;
+	}
+
 	public int getAdminNum() {
 		return adminNum;
 	}
@@ -99,20 +117,17 @@ public class ScoreStatistics implements Comparable<ScoreStatistics>{
 		this.adminNum = adminNum;
 	}
 
-	public String getStudentState() {
-		return studentState;
+	@Override
+	public String toString() {
+		return "ScoreStatistics{" +
+				"student_id='" + student_id + '\'' +
+				", studentName='" + studentName + '\'' +
+				", studentState='" + studentState + '\'' +
+				", studentPhone='" + studentPhone + '\'' +
+				", score=" + score +
+				", perfectScore=" + perfectScore +
+				", scoreOfPerfect=" + scoreOfPerfect +
+				", adminNum=" + adminNum +
+				'}';
 	}
-
-	public void setStudentState(String studentState) {
-		this.studentState = studentState;
-	}
-
-	public double getScoreOfPerfect() {
-		return scoreOfPerfect;
-	}
-
-	public void setScoreOfPerfect(int scoreOfPerfect) {
-		this.scoreOfPerfect = scoreOfPerfect;
-	}
-	
 }

@@ -16,7 +16,7 @@ public class StudentState {
 		case NORMAL:
 			return "未面试";
 		case INTERVIEW:
-			return "面试";
+			return "面试中";
 		case INTERVIEW_SUCCESS:
 			return "面试成功";
 		case INTERVIEW_FAIL:

@@ -5,6 +5,8 @@
 	<a class="nav-a ${navNow2 }" href="view">查看</a>
 	<a class="nav-a ${navNow3 }" href="interview">面试</a>
 	<a class="nav-a ${navNow3 }" href="statistics">成绩统计</a>
-	<a class="nav-a ${navNow3 }" href="set">设置</a>
+	<a class="nav-a ${navNow3 }" href="set">设置</a>\
+	<a class="nav-a" style="float:right" href="#">管理员：${admin.name}</a>
 </header>
+
 <div class="height50"></div>
