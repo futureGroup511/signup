@@ -1,7 +1,0 @@
-0:0:0:0:0:0:0:1 - - [02/Sep/2017:11:12:30 +0800] "GET /signup/admin/index HTTP/1.1" 200 8557 http-bio-8080-exec-1 2195
-0:0:0:0:0:0:0:1 - - [02/Sep/2017:11:12:30 +0800] "GET /signup/static/css/common.css HTTP/1.1" 304 - http-bio-8080-exec-2 39
-0:0:0:0:0:0:0:1 - - [02/Sep/2017:11:12:30 +0800] "GET /signup/static/plugins/amazeui/css/amazeui.min.css HTTP/1.1" 304 - http-bio-8080-exec-5 41
-0:0:0:0:0:0:0:1 - - [02/Sep/2017:11:12:30 +0800] "GET /signup/static/plugins/echarts/echarts.js HTTP/1.1" 304 - http-bio-8080-exec-3 34
-0:0:0:0:0:0:0:1 - - [02/Sep/2017:11:12:30 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-6 0
-0:0:0:0:0:0:0:1 - - [02/Sep/2017:11:12:45 +0800] "GET /signup/api/signup HTTP/1.1" 405 1065 http-bio-8080-exec-9 23
-10.1.24.200 - - [02/Sep/2017:11:20:56 +0800] "POST /signup/api/signup HTTP/1.1" 200 43 http-bio-8080-exec-2 14
