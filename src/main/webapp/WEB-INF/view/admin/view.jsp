@@ -23,7 +23,35 @@
 				return;
 			}
 			if(resp.result == 0){
-				alert("成功！");
+				//alert("成功！");
+				location.reload()
+				return
+			}else{
+				alert(resp.message);
+				location.reload()
+				return;
+			}
+		});
+	}
+	function changeMarks(id,marks){
+	    console.log(id)
+	    console.log(marks)
+        var url = "changeMarks";
+		var postData = {
+		    'id':id,
+		    'marks':marks
+		}
+		$.post(url,postData,function(data,state){
+		    console.log(data)
+			try{
+				var resp = eval('(' + data + ')');
+			}catch(e){
+				alert("服务端错误！");
+				location.reload();
+				return;
+			}
+			if(resp.result == 0){
+                //alert("成功！");
 				location.reload()
 				return
 			}else{
@@ -125,7 +153,7 @@
 		<div class="am-u-sm-12">
 			<div class="am-scrollable-horizontal">
 				<table
-					class="am-table am-table-bordered am-table-striped am-text-nowrap">
+					class="am-table am-table-compact am-table-bordered am-table-striped am-text-nowrap">
 					<thead>
 						<tr>
 							<th>姓名</th>
@@ -139,6 +167,7 @@
 							<th>面试Ta</th>
 							<th>取消面试</th>
 							<th>删除</th>
+							<th>备注</th>
 						</tr>
 					</thead>
 					<c:forEach var="item" items="${pc.data }">
@@ -195,6 +224,9 @@
                                     <button class="am-btn am-btn-xs am-btn-danger" onclick="changeState('${item._id}',1)">取消面试成绩</button></td>
                             	</c:otherwise>
                             </c:choose>
+                            <td>
+                                <input onchange="changeMarks('${item._id}',this.value)" value="${item.marks}" /><span>当前值：${item.marks}</span>
+                            </td>
 						</tr>
 					</c:forEach>
 

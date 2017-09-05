@@ -20,6 +20,7 @@ public class Student extends Entity{
 	private String qq;
 	private int state;//状态，0-4:[正常，面试中，面试成功，，已淘汰，已删除]，StudentState类有定义
 	private Timestamp signupTime;
+	private String marks;
 	
 	public Student() {
 		// TODO Auto-generated constructor stub
@@ -36,7 +37,13 @@ public class Student extends Entity{
 		this.signupTime = new Timestamp(new Date().getTime());
 	}
 
+	public String getMarks() {
+		return marks;
+	}
 
+	public void setMarks(String marks) {
+		this.marks = marks;
+	}
 
 	public String get_id() {
 		return _id;
