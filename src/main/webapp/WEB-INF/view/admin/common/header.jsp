@@ -8,5 +8,5 @@
 	<a class="nav-a ${navNow3 }" href="set">设置</a>\
 	<a class="nav-a" style="float:right" href="#">管理员：${admin.name}</a>
 </header>
-
 <div class="height50"></div>
+<div class="am-text-danger am-text-xxl">${globalDanger}</div>

@@ -46,8 +46,7 @@ public class AllFilter implements Filter{
 		//调试阶段，为每个session添加登录状态
 		/*VisitLog visitLog = new VisitLog(req.getRemoteHost()+req.getRemoteUser(),req.getRemoteAddr(),req.getRequestURI(),req.getSession().getId());
 		visitLogService.insertEntity(visitLog);*/
-		Admin admin = new AdminService().queryByAccountAndPassword("15516672556", "song");
-		req.getSession().setAttribute("admin", admin);
+
 		arg2.doFilter(arg0, arg1);
 		
 	}

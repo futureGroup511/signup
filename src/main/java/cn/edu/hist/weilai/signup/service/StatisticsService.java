@@ -33,6 +33,7 @@ public class StatisticsService {
 		List<Student> students = studentService.queryAllStudent(StudentState.INTERVIEW,StudentState.INTERVIEW_SUCCESS,StudentState.INTERVIEW_FAIL);
 		for(Student student:students) {
 			ScoreStatistics ss = new ScoreStatistics(student.get_id(), student.getName(),student.getState());
+			ss.setStudentPhone(student.getPhone());
 			for(Admin admin:admins) {
 				Interview iv = interviewService.getByAdminAndStudent(admin.get_id(), student.get_id());
 				if(iv!=null) {

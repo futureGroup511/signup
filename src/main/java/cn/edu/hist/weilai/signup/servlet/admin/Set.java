@@ -49,8 +49,10 @@ public class Set extends BaseServlet{
 
 		if("openSignup".equals(o)) {
 			Signup.canSignup = true;
+			req.setAttribute("globalDanger","");
 			req.setAttribute("remind", "开启报名成功！");
 		}
+
 
 		List<InterviewItem> interviewItems = interviewItemService.queryAllEntity();
 		req.setAttribute("interviewItems", interviewItems);
@@ -94,8 +96,11 @@ public class Set extends BaseServlet{
 				this.doGet(req, resp);
 				return;
 			}
-		//设置报名开关
-		case "setSignup":
+			case "setInterviewTime":
+				req.getSession().getServletContext().setAttribute("interviewTime",req.getParameter("interviewTime"));
+				req.setAttribute("remind","更新成功！");
+				this.doGet(req,resp);
+				return;
 			
 		}
 		

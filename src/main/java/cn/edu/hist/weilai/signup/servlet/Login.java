@@ -1,4 +1,4 @@
-package cn.edu.hist.weilai.signup.servlet.admin;
+package cn.edu.hist.weilai.signup.servlet;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import cn.edu.hist.weilai.signup.utils.CheckUtils;
 @Date:2017年8月12日
 @Description:
 */
-@WebServlet("/admin/login")
+@WebServlet("/login")
 public class Login extends BaseServlet{
 
 	/**
@@ -27,7 +27,7 @@ public class Login extends BaseServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		forward("admin/login", req, resp);
+		forward("login", req, resp);
 	}
 	
 	@Override
@@ -36,16 +36,16 @@ public class Login extends BaseServlet{
 		String[] values= this.getParams(req, "account","password","vCode");
 		if( CheckUtils.hasNull(values) || !values[2].equals("weilai")) {
 			req.setAttribute("warning", "登录失败，请检查输入的数据！");
-			forward("admin/login", req, resp);
+			forward("login", req, resp);
 			return;
 		}
 		Admin admin = adminService.queryByAccountAndPassword(values[0],values[1]);
 		if(admin==null) {
 			req.setAttribute("warning", "登录失败，请检查输入的数据！");
-			forward("admin/login", req, resp);
+			forward("login", req, resp);
 			return;
 		}
 		req.getSession().setAttribute("admin", admin);
-		resp.sendRedirect("index");
+		resp.sendRedirect("admin/index");
 	}
 }

@@ -1,12 +1,17 @@
 package cn.edu.hist.weilai.signup.servlet.admin;
 
+import cn.edu.hist.weilai.signup.entity.Admin;
+import cn.edu.hist.weilai.signup.entity.Interview;
 import cn.edu.hist.weilai.signup.entity.Student;
 import cn.edu.hist.weilai.signup.entity.StudentState;
+import cn.edu.hist.weilai.signup.entity.model.AverageScore;
 import cn.edu.hist.weilai.signup.entity.model.ScoreStatistics;
 import cn.edu.hist.weilai.signup.servlet.BaseServlet;
 import cn.edu.hist.weilai.signup.utils.CheckUtils;
 import cn.edu.hist.weilai.signup.utils.DateUtils;
 import cn.edu.hist.weilai.signup.utils.TextUtils;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.xssf.usermodel.*;
 
@@ -16,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -36,6 +42,9 @@ public class DownloadExcel extends BaseServlet {
         String filename = "学生成绩-统计.xlsx";
         resp.setHeader("Content-Disposition", "attachment;filename="+ URLEncoder.encode(filename,"utf-8"));
         XSSFWorkbook xssfWorkbook = new XSSFWorkbook();
+        XSSFCellStyle cellStyle=xssfWorkbook.createCellStyle();
+        cellStyle.setWrapText(true);
+
         XSSFSheet spreadsheet = xssfWorkbook.createSheet("名单");
         spreadsheet.setColumnWidth(0,1000);
         spreadsheet.setColumnWidth(1,2000);
@@ -43,6 +52,8 @@ public class DownloadExcel extends BaseServlet {
         spreadsheet.setColumnWidth(3,3000);
         spreadsheet.setColumnWidth(4,2000);
         spreadsheet.setColumnWidth(5,2000);
+        spreadsheet.setColumnWidth(6,2000);
+        spreadsheet.setColumnWidth(7,10000);
         XSSFRow row = spreadsheet.createRow((short)0);
         row.createCell(0).setCellValue("排名");
         row.createCell(1).setCellValue("姓名");
@@ -51,6 +62,7 @@ public class DownloadExcel extends BaseServlet {
         row.createCell(4).setCellValue("得分率");
         row.createCell(5).setCellValue("分数");
         row.createCell(6).setCellValue("满分");
+        row.createCell(7).setCellValue("评委评论");
         int i = 1;
         for(ScoreStatistics ss:statistics){
             row = spreadsheet.createRow(i);
@@ -61,6 +73,31 @@ public class DownloadExcel extends BaseServlet {
             row.createCell(4).setCellValue(String.format("%.2f",ss.getScoreOfPerfect()));
             row.createCell(5).setCellValue(ss.getScore());
             row.createCell(6).setCellValue(ss.getPerfectScore());
+            List<Admin> admins = adminService.queryAllEntity();
+            StringBuilder comment = new StringBuilder();
+            XSSFCell cell = row.createCell(7);
+            cell.setCellStyle(cellStyle);
+            for(Admin admin:admins) {
+                //用此方法获得最新的评分
+                Interview iv = interviewService.getByAdminAndStudent(admin.get_id(), ss.getStudent_id());
+                if(iv!=null) {
+                    //对json数据的评论数据进行一次转换，前台直接显示
+                    comment.append(admin.getName()).append("<").append(admin.get_id()).append(">").append("\r\n");
+                    JSONObject temp = JSON.parseObject(iv.getCommentItems());
+                    Set<String> keys = temp.keySet();
+                    for(String key:keys) {
+                        String content = (String)temp.get(key);
+                        if(content != null){
+                            content = content.replace("\n","\n    ");
+                        }
+
+                        comment.append("    ").append(key).append(":").append(content).append("\r\n");
+                    }
+                }
+            }
+            cell.setCellValue(comment.toString());
+
+
         }
         xssfWorkbook.write(resp.getOutputStream());
 
@@ -84,6 +121,7 @@ public class DownloadExcel extends BaseServlet {
         spreadsheet.setColumnWidth(4,4000);
         spreadsheet.setColumnWidth(5,3000);
         spreadsheet.setColumnWidth(6,6000);
+        spreadsheet.setColumnWidth(7,8000);
         XSSFRow row = spreadsheet.createRow((short)0);
 
         row.createCell(0).setCellValue("姓名");
@@ -93,6 +131,7 @@ public class DownloadExcel extends BaseServlet {
         row.createCell(4).setCellValue("学院");
         row.createCell(5).setCellValue("状态");
         row.createCell(6).setCellValue("报名时间");
+        row.createCell(7).setCellValue("面试安排");
 
         for(int i = 0;i<students.size();i++){
             Student student = students.get(i);
@@ -104,6 +143,7 @@ public class DownloadExcel extends BaseServlet {
             row.createCell(4).setCellValue(student.getCollege());
             row.createCell(5).setCellValue(StudentState.getState(student.getState()));
             row.createCell(6).setCellValue(DateUtils.toString(student.getSignupTime(),"YYYY-MM-dd HH:mm:ss"));
+            row.createCell(7).setCellValue(student.getInterviewTime());
         }
         xssfWorkbook.write(resp.getOutputStream());
 

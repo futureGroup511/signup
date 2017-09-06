@@ -21,6 +21,7 @@ public class Student extends Entity{
 	private int state;//状态，0-4:[正常，面试中，面试成功，，已淘汰，已删除]，StudentState类有定义
 	private Timestamp signupTime;
 	private String marks;
+	private String interviewTime;//默认未知
 	
 	public Student() {
 		// TODO Auto-generated constructor stub
@@ -35,6 +36,7 @@ public class Student extends Entity{
 		this.qq = qq;
 		this.state = state;
 		this.signupTime = new Timestamp(new Date().getTime());
+		this.interviewTime = "待定";
 	}
 
 	public String getMarks() {
@@ -81,7 +83,15 @@ public class Student extends Entity{
 	public void setSignupTime(Timestamp signupTime) {
 		this.signupTime = signupTime;
 	}
-	
+
+	public String getInterviewTime() {
+		return interviewTime;
+	}
+
+	public void setInterviewTime(String interviewTime) {
+		this.interviewTime = interviewTime;
+	}
+
 	public String getQq() {
 		return qq;
 	}
@@ -96,6 +106,20 @@ public class Student extends Entity{
 
 	public void setState(int state) {
 		this.state = state;
+		switch (state){
+			case StudentState.INTERVIEW:
+				//切换为面试状态时,由Controller层更改
+				break;
+			case StudentState.INTERVIEW_SUCCESS:
+				this.interviewTime = "面试成功";
+				break;
+			case StudentState.INTERVIEW_FAIL:
+				this.interviewTime = "面试成功";
+				break;
+			default:
+				this.interviewTime = "待定";
+		}
+
 	}
 	@Override
 	public String toString() {

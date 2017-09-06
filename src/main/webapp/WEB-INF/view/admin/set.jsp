@@ -31,6 +31,21 @@
 			</c:if>
 		</div>
 	</div>
+	<div class="am-g">
+    		<div class="am-u-sm-12">
+    			<h2>设置下一批面试安排</h2>
+    			<form class="am-form" action="" method="post">
+    			    <div class="am-u-sm-6">
+    			        <input type="hidden" name="operation" value="setInterviewTime" />
+    			        <input type="text" name="interviewTime" value="${interviewTime}" />
+    			    </div>
+    			    <div class="am-u-sm-6">
+    			        <button class="am-btn am-btn-primary">更新</button>
+    			    </div>
+    			</form>
+    		</div>
+    	</div>
+
 	<hr>
 	<div class="am-g">
 		<div class="am-u-sm-12">

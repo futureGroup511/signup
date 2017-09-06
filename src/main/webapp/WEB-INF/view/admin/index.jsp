@@ -29,21 +29,20 @@
         <h4>报名日志：</h4>
         <table class="am-table am-table-bordered am-table-striped am-table-compact">
           <thead>
-          <tr>
-            <th>IP</th>
-            <th>姓名</th>
-            <th>时间</th>
-          </tr>
+              <tr>
+                <th>IP</th>
+                <th>姓名</th>
+                <th>时间</th>
+              </tr>
           </thead>
           <tbody>
-                <c:forEach var="item" items="${signupLogs }">
-					<tr class="am-link-muted">
-					    <th>${item.ip }</th>
-					    <th>${item.name }</th>
-					    <th>${item.signupTime }</th>
-				  	</tr>
-				</c:forEach>
-
+            <c:forEach var="item" items="${signupLogs }">
+			    <tr class="am-link-muted">
+				   <th>${item.ip }</th>
+				   <th>${item.name }</th>
+				   <th>${item.signupTime }</th>
+				</tr>
+			</c:forEach>
           </tbody>
         </table>
     </div>

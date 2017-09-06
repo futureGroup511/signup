@@ -146,6 +146,14 @@
 				class="am-text-warning">${pc.currPage } / ${pc.pageNum }</span><span>页</span>
 			<a target="_blank" href="downloadExcel?state=${state}&search=${search}">,下载<span class="am-text-warning">${pc.count }</span>个结果的Excel</a>
 		</div>
+		<div class="am-u-sm-12">
+        	<span class="am-text-default">当前预设面试安排：</span>
+        	<span class="am-text-success">${interviewTime}</span>
+        	<span class="am-text-default">更改请到设置</span>
+        	<c:if test="${empty interviewTime}">
+        	    <div class="am-text-danger am-text-xxl">警告:面试时间未设置,修改学生为面试状态时,面试安排将为:"待定"</div>
+        	</c:if>
+        </div>
 	</div>
 	<!--  am-g -->
 	<div class="height20"></div>
@@ -168,6 +176,7 @@
 							<th>取消面试</th>
 							<th>删除</th>
 							<th>备注</th>
+							<th>面试安排</th>
 						</tr>
 					</thead>
 					<c:forEach var="item" items="${pc.data }">
@@ -226,6 +235,9 @@
                             </c:choose>
                             <td>
                                 <input onchange="changeMarks('${item._id}',this.value)" value="${item.marks}" /><span>当前值：${item.marks}</span>
+                            </td>
+                            <td>
+                                ${item.interviewTime}
                             </td>
 						</tr>
 					</c:forEach>

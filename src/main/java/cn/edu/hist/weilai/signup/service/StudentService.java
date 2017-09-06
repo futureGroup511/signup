@@ -104,6 +104,11 @@ public class StudentService extends MongoBaseDao<Student>{
 		MongoCursor<Document> results = getCollection().find(filter).iterator();
 		return MongoEntityUtils.toList(results, Student.class);
 	}
+	public List<Student> queryAll(String name){
+		String regStr = String.format("\\S*%s\\S*", name);
+		MongoCursor<Document> results = getCollection().find(Filters.regex("name",regStr)).iterator();
+		return MongoEntityUtils.toList(results, Student.class);
+	}
 	public int queryCountByCalendar(Calendar c1,Calendar c2){
 
 		if(c2==null){

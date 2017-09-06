@@ -11,7 +11,7 @@ public class ReturnResult {
 	public static final int SERVER_ERROR = 3;
 	public static final int SIGNUP_CLOSE = 4;
 	
-	private static final String[] messages = {"成功","请求错误","用户已经存在","服务器错误","报名已经关闭"};
+	private static final String[] messages = {"成功","请求错误","您已经报名过,请不要重复报名!","未知原因导致报名失败","报名已经关闭!"};
 	
 	private int result ;
 	private String message ;

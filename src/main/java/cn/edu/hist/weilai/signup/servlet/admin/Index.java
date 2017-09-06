@@ -45,9 +45,10 @@ public class Index  extends BaseServlet{
 		req.setAttribute("INTERVIEW_SUCCESS",studentService.queryCountByState(StudentState.INTERVIEW_SUCCESS));
 		req.setAttribute("INTERVIEW_FAIL",studentService.queryCountByState(StudentState.INTERVIEW_FAIL));
 		List<VisitLog> visitLogs = visitLogService.getNew(20);
-		List<SignupLog> signups = signupLogService.getNew(10);
+		List<SignupLog> signupLogs = signupLogService.getNew(20);
 		req.setAttribute("visitLogs",visitLogs);
-		req.setAttribute("signups",signups);
+		req.setAttribute("signupLogs",signupLogs);
+		logger.debug(signupLogs.size());
 		req.setAttribute("onlineNum", StatisticsService.online);
 		req.setAttribute("signupNum",studentService.countIntEntity());
 		req.setAttribute("visitNum",visitLogService.countEntity());

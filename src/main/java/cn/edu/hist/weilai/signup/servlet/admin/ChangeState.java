@@ -1,6 +1,7 @@
 package cn.edu.hist.weilai.signup.servlet.admin;
 
 import cn.edu.hist.weilai.signup.entity.Student;
+import cn.edu.hist.weilai.signup.entity.StudentState;
 import cn.edu.hist.weilai.signup.servlet.BaseServlet;
 import cn.edu.hist.weilai.signup.utils.CheckUtils;
 import cn.edu.hist.weilai.signup.utils.TextUtils;
@@ -30,7 +31,18 @@ public class ChangeState extends BaseServlet{
         if(state<0 || state > 4){
             state = 0;
         }
+
         student.setState(state);
+        if(state== StudentState.INTERVIEW){
+            String time = (String) req.getSession().getServletContext().getAttribute("interviewTime");
+            if(time == null){
+                time = "待定";
+            }
+            student.setInterviewTime(time);
+        }else{
+            //改为Student类的setState方法改变
+            //student.setInterviewTime("待定");
+        }
         studentService.updateEntity(student);
         resp.getWriter().print("{result:0,message:'成功！'}");
     }

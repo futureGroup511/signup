@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<jsp:include page="../common/head.jsp"></jsp:include>
+<jsp:include page="common/head.jsp"></jsp:include>
 <title>title</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
 						<label for="account-input">账号</label> <input type="text" id="account-input" name="account" placeholder="输入账号">
 					</div>
 					<div class="am-form-group">
-						<label for="password-input">密码</label> <input type="text" id="password-input" name="password" placeholder="输入密码">
+						<label for="password-input">密码</label> <input type="password" id="password-input" name="password" placeholder="输入密码">
 					</div>
 					<div class="am-form-group">
 						<label for="vCode-input">验证码</label> <input type="text" id="vCode-input" name="vCode" placeholder="输入验证码">

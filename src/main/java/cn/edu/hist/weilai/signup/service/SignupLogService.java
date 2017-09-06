@@ -13,7 +13,7 @@ import java.util.List;
 public class SignupLogService extends MongoBaseDao<SignupLog> {
     public List<SignupLog> getNew(int count){
         MongoCursor<Document> results = getCollection().find().sort(new BasicDBObject("_id", -1)).limit(count).iterator();
-        List<SignupLog> articles = MongoEntityUtils.toList(results, SignupLog.class);
-        return articles;
+        List<SignupLog> logs = MongoEntityUtils.toList(results, SignupLog.class);
+        return logs;
     }
 }
