@@ -12,12 +12,9 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.edu.hist.weilai.signup.entity.VisitLog;
-import cn.edu.hist.weilai.signup.service.VisitLogService;
 import org.apache.log4j.Logger;
 
-import cn.edu.hist.weilai.signup.entity.Admin;
-import cn.edu.hist.weilai.signup.service.AdminService;
+import cn.edu.hist.weilai.signup.service.VisitLogService;
 
 /*
 @Author:song

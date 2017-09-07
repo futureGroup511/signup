@@ -17,7 +17,7 @@
         <div style="height:60px;"></div>
         <div class="am-g">
             <div class="am-u-sm-12" style="text-align:center;">
-                <img src="https://dev-1251811540.costj.myqcloud.com/signup/images/index_qr.png" style="width:100%">
+                <img src="https://dev-1251811540.costj.myqcloud.com/signup/images/index_qr.png" style="width:100%;max-width:400px;">
             </div>
         </div>
     </body>

@@ -38,7 +38,7 @@ public class BaseServlet extends HttpServlet{
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		VisitLog visitLog = new VisitLog(req.getRemoteHost()+req.getRemoteUser(),req.getRemoteAddr(),req.getRequestURI(),req.getSession().getId());
+		VisitLog visitLog = new VisitLog(req.getRemoteHost(),req.getRemoteAddr(),req.getRequestURI(),req.getSession().getId());
 		visitLogService.insertEntity(visitLog);
 		super.service(req, resp);
 	}

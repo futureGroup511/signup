@@ -9,16 +9,5 @@
   <description>
      ....
   </description>
-  <filter>
-  	<description>
-  	</description>
-  	<display-name>AdminFilter</display-name>
-  	<filter-name>AdminFilter</filter-name>
-  	<filter-class>cn.edu.hist.weilai.signup.filter.AdminFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>AdminFilter</filter-name>
-  	<url-pattern>/AdminFilter</url-pattern>
-</filter-mapping>
     
 </web-app>
