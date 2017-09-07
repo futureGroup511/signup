@@ -18,10 +18,10 @@
 	</div>
 	<div class="am-g">
 		<form class="am-form">
-        	    <div class="am-u-sm-8 am-u-md-centered">
+        	    <div class="am-u-sm-8">
                     <input class="am-form-field am-radius" name="search" value="${search}" placeholder="输入姓名搜索" />
                 </div><!-- am-u -->
-                <div class="am-u-sm-4 am-u-md-centered">
+                <div class="am-u-sm-4">
                         <button class="am-btn am-btn-success">搜索</button>
                 </div><!-- am-u -->
         </form>
@@ -32,7 +32,7 @@
             <span>共找到<span class="am-text-warning">${size}</span>个结果</span>
         </div>
     </div>
-        <div style="height:10px;"></div>
+    <div style="height:10px;"></div>
     <div class="am-g">
 		<div class="am-u-sm-12 am-u-md-centered">
             <table class="am-table am-table-bordered am-table-striped am-table-compact">

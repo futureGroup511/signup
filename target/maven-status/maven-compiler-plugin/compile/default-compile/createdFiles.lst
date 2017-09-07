@@ -44,6 +44,7 @@ cn/edu/hist/weilai/signup/servlet/InterviewTime$1.class
 cn/edu/hist/weilai/signup/filter/AllFilter.class
 cn/edu/hist/weilai/signup/entity/Interview.class
 cn/edu/hist/weilai/signup/servlet/Login.class
+cn/edu/hist/weilai/signup/filter/IndexFilter.class
 cn/edu/hist/weilai/signup/utils/DateUtils.class
 cn/edu/hist/weilai/signup/utils/PageCut.class
 cn/edu/hist/weilai/signup/entity/Entity.class
