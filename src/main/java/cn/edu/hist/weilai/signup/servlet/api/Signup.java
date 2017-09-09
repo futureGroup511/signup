@@ -58,7 +58,7 @@ public class Signup extends BaseServlet{
 		boolean success = studentService.insertEntity(student);
 		if(success) {
 			ApiTools.respResult(ReturnResult.SUCCESS, resp);
-			SignupLog signupLog = new SignupLog(values[0],req.getRemoteAddr(),"",req.getSession().getId());
+			SignupLog signupLog = new SignupLog(values[0],req.getHeader("X-Real-IP"),"",req.getSession().getId());
 			signupLogService.insertEntity(signupLog);
 			return;
 		}

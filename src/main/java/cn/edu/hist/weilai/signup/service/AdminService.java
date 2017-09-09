@@ -18,4 +18,8 @@ public class AdminService extends MongoBaseDao<Admin>{
 		Document doc = getCollection().find(and(eq("phone",account),eq("password",password))).first();
 		return doc== null ? null:toEntity(doc);
 	}
+	public Admin queryByAccount(String account) {
+		Document doc = getCollection().find(eq("phone",account)).first();
+		return doc== null ? null:toEntity(doc);
+	}
 }

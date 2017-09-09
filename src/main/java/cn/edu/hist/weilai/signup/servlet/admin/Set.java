@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.edu.hist.weilai.signup.entity.InterviewItem;
+import cn.edu.hist.weilai.signup.entity.Student;
+import cn.edu.hist.weilai.signup.entity.StudentState;
 import cn.edu.hist.weilai.signup.servlet.BaseServlet;
 import cn.edu.hist.weilai.signup.servlet.api.Signup;
 import cn.edu.hist.weilai.signup.utils.CheckUtils;
@@ -30,6 +32,8 @@ public class Set extends BaseServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+
 
 		//获得操作，
 

@@ -16,9 +16,6 @@ public class AddStudent {
 	public static void main(String[] args) {
 		
 		StudentService ss = new StudentService();
-		for(int i=0;i++ <100;) {
-			Student s = new Student("wang","信工","物联网工程","110", "3421312",StudentState.NORMAL);
-			ss.insertEntity(s);
-		}
+		ss.delete(StudentState.DELETE);
 	}
 }

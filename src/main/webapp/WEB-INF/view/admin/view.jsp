@@ -153,6 +153,7 @@
         	<c:if test="${empty interviewTime}">
         	    <div class="am-text-danger am-text-xxl">警告:面试时间未设置,修改学生为面试状态时,面试安排将为:"待定"</div>
         	</c:if>
+        	<p><a href="?clean=yes">清空回收站</a></p>
         </div>
 	</div>
 	<!--  am-g -->

@@ -42,7 +42,9 @@ public class InterviewTime extends BaseServlet{
         if(time - lastUpdate > 60000){
             synchronized (this.students){
                 lastUpdate = time;
-                students = studentService.queryAllEntity();
+                //获得未被删除的学生
+                students = studentService.queryAllStudent(0,1,2,3);
+
                 logger.debug(students.size());
                 //排序,面试成功\面试失败\面试中\待定,先报名在前
                 Collections.sort(students, new Comparator<Student>() {

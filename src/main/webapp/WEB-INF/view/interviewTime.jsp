@@ -5,7 +5,7 @@
 <head>
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://dev-1251811540.costj.myqcloud.com/signup/amazeui/css/amazeui.min.css">
+<link rel="stylesheet" href="${staticUrl}/plugins/amazeui/css/amazeui.min.css">
 <title>面试安排</title>
 </head>
 <body>

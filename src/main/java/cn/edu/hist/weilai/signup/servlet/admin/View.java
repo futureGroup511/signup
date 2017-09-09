@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.edu.hist.weilai.signup.entity.Student;
+import cn.edu.hist.weilai.signup.entity.StudentState;
 import cn.edu.hist.weilai.signup.servlet.BaseServlet;
 import cn.edu.hist.weilai.signup.utils.CheckUtils;
 import cn.edu.hist.weilai.signup.utils.PageCut;
@@ -29,7 +30,11 @@ public class View extends BaseServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		String clean = req.getParameter("clean");
+		if("yes".equals(clean)){
+			logger.debug("clean...");
+			studentService.delete(StudentState.DELETE);
+		}
 		String search = req.getParameter("search");
 		if(! CheckUtils.hasNull(search)) {
 			search = new String(search.getBytes("iso8859-1"));

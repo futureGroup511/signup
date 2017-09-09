@@ -122,4 +122,10 @@ public class StudentService extends MongoBaseDao<Student>{
         Long count = getCollection().count(eq("state",state));
         return count.intValue();
     }
+    public void delete(int state){
+    	logger.debug("delete:"+state);
+    	getCollection().deleteMany(eq("state",state));
+
+
+	}
 }

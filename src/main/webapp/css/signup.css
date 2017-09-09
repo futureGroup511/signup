@@ -1,0 +1,596 @@
+@charset "UTF-8";
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    overflow: hidden;
+    font-family: '微软雅黑', sans-serif;
+    font-size: 14px;
+}
+
+#container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/bg.png);
+}
+
+#container .ball-canvas {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 99999;
+    opacity: 0;
+    background-color: #f3d99b;
+}
+
+#container .canvas {
+    position: absolute;
+}
+
+#container .page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+#container .page7 {
+    position: absolute;
+    display: block;
+    height: 50%;
+    width: 80%;
+    top: 25%;
+    left: 10%;
+    z-index: 99999;
+}
+
+#container .page7 .page7-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 1%;
+    overflow: hidden;
+}
+
+#container .page7 .page7-input {
+    position: absolute;
+    width: 80%;
+    height: 12.5%;
+    background-color: white;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    border: 0;
+    font-size: 20px;
+    padding-left: 10px;
+    opacity: 0;
+}
+
+#container .page7 .page7-input1 {
+    top: 1%;
+}
+
+#container .page7 .page7-input2 {
+    top: 17.5%;
+}
+
+#container .page7 .page7-input3 {
+    top: 34%;
+}
+
+#container .page7 .page7-input4 {
+    top: 50.5%;
+}
+
+#container .page7 .page7-input5 {
+    top: 67%;
+}
+
+#container .page7 .page7-input6 {
+    top: 82.5%;
+    color: white;
+    font-weight: 500;
+    background-color: #fa0;
+}
+
+#container .page7 .page7-center {
+    position: absolute;
+    width: 70%;
+    height: 50%;
+    display: none;
+    bottom: 10%;
+    left: 5%;
+    transition: all 0.5s;
+    padding: 0 10%;
+    padding-top: 3%;
+    background-color: #fff;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    color: #333;
+}
+
+#container .page7 .page7-selector {
+    width: 100%;
+    height: 33.3%;
+    line-height: 300%;
+    border-bottom: 1px solid #ccc;
+}
+
+#container .page7 .page7-lan {
+    color: #007ACC;
+}
+
+#container .page7 .page7-selector span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+}
+
+#container .page7 .page7-lan span {
+    border-bottom: 2px solid #007ACC;
+    border-right: 2px solid #007ACC;
+    transform: rotate(-45deg);
+}
+
+#container .page8 {
+    position: absolute;
+    height: 50%;
+    width: 80%;
+    top: 25%;
+    left: 10%;
+    z-index: 1;
+}
+
+#container .page8 .page8-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#container .page8 .page8-title-container {
+    position: absolute;
+    margin: 0 auto;
+    display: inline;
+    opacity: 0;
+    width: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 100%;
+}
+
+#container .page8 .page8-title {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    color: red;
+}
+
+#container .page8 .page8-img {
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 16%;
+    transform: scale(0) rotate(0deg);
+}
+
+#container .page8 a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    box-shadow: 1px 1px 2px 2px #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+}
+
+#container .rolls {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#container .rolls .roll {
+    position: absolute;
+}
+
+#container .rolls .top-roll, #container .rolls .bottom-roll {
+    height: 4px;
+    width: 96%;
+    background-image: url("../images/up-down.png");
+}
+
+#container .rolls .left-roll, #container .rolls .right-roll {
+    height: 96%;
+    width: 4px;
+    background-image: url("../images/both-sides.png");
+}
+
+#container .rolls .top-roll {
+    top: 2%;
+    left: -50%;
+    opacity: 0;
+    animation: top-roll 1s infinite ease-out;
+}
+
+#container .rolls .bottom-roll {
+    top: 98%;
+    left: 50%;
+    animation: bottom-roll 1s infinite ease-out;
+}
+
+#container .rolls .left-roll {
+    left: 2%;
+    top: 50%;
+    animation: left-roll 1s infinite ease-out;
+}
+
+#container .rolls .right-roll {
+    left: 98%;
+    top: 0;
+    animation: right-roll 1s infinite ease-out;
+}
+
+#container .rolls .rect {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    border: 2px solid black;
+}
+
+#container .rolls .rect {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    border: 2px solid black;
+}
+
+#container .rolls .fz {
+    animation: fz 1.2s ease 1;
+}
+
+#container .rolls .arrow {
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    bottom: 3%;
+    left: calc(50% - 15px);
+    animation: arrow-ani 1.5s infinite ease-out;
+}
+
+#container .rolls .title {
+    position: absolute;
+    width: 80%;
+    height: 10%;
+    z-index: 1000;
+    margin: 0 auto;
+    top: 10%;
+    left: 0;
+    right: 0;
+}
+
+#container .rolls .title .title-left {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    height: 28px;
+    width: 24px;
+    opacity: 0;
+}
+
+#container .rolls .title .title-right {
+    position: absolute;
+    margin: 0;
+    left: 90%;
+    top: 20%;
+    width: 44px;
+    height: 29px;
+    opacity: 0;
+}
+
+#container .rolls .title .title-center {
+    position: absolute;
+    height: 90%;
+    width: 70%;
+    top: 5%;
+    left: 15%;
+    line-height: 100%;
+}
+
+#container .rolls .title .title-center .title-center-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("../images/back.png") 0 5px no-repeat;
+    background-size: 100% 100%;
+    top: 300%;
+    opacity: 0;
+}
+
+#container .rolls .title .title-center-left {
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    opacity: 0;
+}
+
+#container .rolls .title .title-center-right {
+    position: absolute;
+    left: 80%;
+    opacity: 0;
+}
+
+#container .rolls .title .title-center-center {
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    left: 20%;
+}
+
+#container .rolls .title .title-center-center .title-center-center-h1 {
+    position: absolute;
+    width: 96px;
+    margin: 0 auto;
+    top: 30%;
+    opacity: 0;
+    font-size: 24px;
+    left: -100%;
+}
+
+#container .rolls .footer {
+    position: absolute;
+    width: 80%;
+    height: 189px;
+    margin: 0 auto;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+}
+
+#container .rolls .footer .footer-left {
+    position: absolute;
+    width: 50%;
+    left: 0;
+    bottom: 0;
+    transform: scale(0);
+    opacity: 0;
+}
+
+#container .rolls .footer .footer-right {
+    position: absolute;
+    width: 60%;
+    right: 0;
+    bottom: 20%;
+    opacity: 0;
+}
+
+#container .video {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    height: 36px;
+    width: 36px;
+    background: url("../images/music_icon.png") #959492 no-repeat 9px;
+    border: 1px solid white;
+    border-radius: 50%;
+    z-index: 9999;
+}
+
+.play {
+    animation: ring 2s linear infinite;
+}
+
+.pause {
+    animation-play-state: paused;
+}
+
+@media screen and (min-width: 310px) and (max-width: 360px) {
+    #container .page2 .page2-content p {
+        font-size: 12px;
+        line-height: 20px;
+    }
+}
+
+@media screen and (min-width: 361px) and (max-width: 413px) {
+    #container .page2 .page2-content p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+@media screen and (min-width: 414px) {
+    #container .page2 .page2-content p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@keyframes page1-hi {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes left-monkey {
+    0% {
+        opacity: 0;
+        top: 900%;
+    }
+    85% {
+        top: -50%;
+    }
+    100% {
+        top: 30%;
+        opacity: 1;
+    }
+}
+
+@keyframes right-monkey {
+    0% {
+        opacity: 0;
+        top: 900%;
+    }
+    85% {
+        top: -50%;
+    }
+    100% {
+        top: 80%;
+        opacity: 1;
+    }
+}
+
+@keyframes arrow-ani {
+    0% {
+        bottom: 2%;
+        opacity: 0;
+        filter: opacity(0);
+    }
+    75% {
+        bottom: 8%;
+        opacity: 1;
+        filter: opacity(100);
+    }
+    76% {
+        opacity: 0;
+        filter: opacity(0);
+    }
+    100% {
+        bottom: 2%;
+        opacity: 0;
+        filter: opacity(0);
+    }
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes top-roll {
+    0% {
+        left: -50%;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        left: 2%;
+        opacity: 1;
+    }
+}
+
+@keyframes bottom-roll {
+    0% {
+        left: 50%;
+    }
+    100% {
+        left: 2%;
+    }
+}
+
+@keyframes left-roll {
+    0% {
+        top: 50%;
+    }
+    100% {
+        top: 2%;
+    }
+}
+
+@keyframes right-roll {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 2%;
+    }
+}
+
+@keyframes fz {
+    0% {
+        transform: perspective(130px) rotateY(90deg);
+    }
+    30% {
+        transform: perspective(130px) rotateY(-20deg);
+    }
+    50% {
+        transform: perspective(130px) rotateY(10deg);
+    }
+    75% {
+        transform: perspective(130px) rotateY(-10deg);
+    }
+    100% {
+        transform: perspective(130px) rotateY(0deg);
+    }
+}
+
+@media all and (max-width: 340px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+@-webkit-keyframes doudong {
+    50% {
+        top: -6%;
+    }
+    75% {
+        top: 4%;
+    }
+    100% {
+        top: 1%;
+    }
+}
+
+@-webkit-keyframes suofang {
+    25% {
+        width: 2%;
+        height: 6.6%;
+    }
+    50% {
+        width: 4%;
+        height: 13.2%;
+    }
+    75% {
+        width: 6%;
+        height: 20%;
+    }
+    100% {
+        width: 9%;
+        height: 30%;
+    }
+}
+
+/*# sourceMappingURL=scroll-page.css.map */

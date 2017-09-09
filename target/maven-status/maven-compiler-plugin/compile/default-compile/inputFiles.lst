@@ -46,4 +46,5 @@
 /home/song/idea-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/entity/StudentState.java
 /home/song/idea-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/service/VisitLogService.java
 /home/song/idea-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/entity/Entity.java
+/home/song/idea-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/admin/Register.java
 /home/song/idea-workspace/signup/src/main/java/cn/edu/hist/weilai/signup/servlet/api/Signup.java

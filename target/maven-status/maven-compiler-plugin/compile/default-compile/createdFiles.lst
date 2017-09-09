@@ -31,6 +31,7 @@ cn/edu/hist/weilai/signup/dao/MongoEntityUtils.class
 cn/edu/hist/weilai/signup/utils/ConvertMap.class
 cn/edu/hist/weilai/signup/entity/InterviewItem.class
 cn/edu/hist/weilai/signup/servlet/admin/ChangeMarks.class
+cn/edu/hist/weilai/signup/servlet/admin/Register.class
 cn/edu/hist/weilai/signup/service/StatisticsService.class
 cn/edu/hist/weilai/signup/listener/AppStart.class
 cn/edu/hist/weilai/signup/servlet/admin/ChangeState.class
