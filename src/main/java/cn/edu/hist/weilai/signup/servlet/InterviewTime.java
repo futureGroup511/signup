@@ -1,12 +1,14 @@
 package cn.edu.hist.weilai.signup.servlet;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 import cn.edu.hist.weilai.signup.entity.Student;
 
@@ -28,10 +30,16 @@ public class InterviewTime extends BaseServlet{
             search = new String(search.getBytes("iso8859-1"),"utf-8");
             logger.debug(search);
             req.setAttribute("search",search);
-            List<Student> results = studentService.queryAll(search);
+            Student result = studentService.getByName(search);
+            List<Student> results = null;
+            if(result != null) {
+            	results =  new LinkedList<>();
+            	results.add(result);
+            }
+            // = studentService.queryAll(search);
             req.setAttribute("students",results);
             req.setAttribute("search",search);
-            req.setAttribute("size",results.size());
+            req.setAttribute("size",results == null?0:results.size());
             this.forward("interviewTime",req,resp);
             return;
         }else {

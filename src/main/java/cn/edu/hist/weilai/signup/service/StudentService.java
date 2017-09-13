@@ -94,6 +94,10 @@ public class StudentService extends MongoBaseDao<Student>{
 		Document doc = getCollection().find(eq("phone",phone)).first();
 		return toEntity(doc);
 	}
+	public Student getByName(String name) {
+		Document doc = getCollection().find(eq("name",name)).first();
+		return toEntity(doc);
+	}
 	public List<Student> queryAllStudent(int ...states){
 		
 		Bson[] eqs = new Bson[states.length];
@@ -108,6 +112,9 @@ public class StudentService extends MongoBaseDao<Student>{
 		//防止正则表达式注入,去掉所有英文字符和数字
 		name = name.replaceAll("[a-zA-Z0-9]", "");
 		logger.debug(name);
+		if("".equals(name)) {
+			return null;
+		}
 		//
 		String regStr = String.format("\\S*%s\\S*", name);
 		MongoCursor<Document> results = getCollection().find(Filters.regex("name",regStr)).iterator();

@@ -24,7 +24,7 @@
                     	<label for="password-input">姓名</label> <input type="text" id="password-input" name="name" value="${student.name }">
                     </div>
 					<div class="am-form-group">
-						<label for="password-input">班级</label> <input type="password" id="password-input" name="majorClass" value="${student.majorClass }">
+						<label for="password-input">班级</label> <input type="text" id="password-input" name="majorClass" value="${student.majorClass }">
 					</div>
 					<div class="am-form-group">
 						<label for="vCode-input">QQ</label> <input type="text" id="vCode-input" name="qq" value="${student.qq }">
