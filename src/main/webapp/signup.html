@@ -106,13 +106,7 @@
     }
 
     first(0)
-    scrollPage('#container', '.page', function (index) {
-        var arr = ['在线报名', '报名成功']
-        $('.title-center-center-h1').text(arr[index])
-        nonePage(index)
-        first(index)
-        initCommon()
-    })
+    
 
     function nonePage(index) {
         var arr = [nonePage7, nonePage8]
@@ -357,6 +351,13 @@
 //          data   {result:4,message:'报名已经截止'}
                 data = JSON.parse(data)
                 if (data.result === 0) {
+                    scrollPage('#container', '.page', function (index) {
+                        var arr = ['在线报名', '报名成功']
+                        $('.title-center-center-h1').text(arr[index])
+                        nonePage(index)
+                        first(index)
+                        initCommon()
+                    })
 //                    alert('报名' + data.message)
                     $('.title-center-center-h1').text('报名成功')
                     $('#container').trigger('swipeUp');

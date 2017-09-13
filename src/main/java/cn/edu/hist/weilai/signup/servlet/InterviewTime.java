@@ -48,8 +48,8 @@ public class InterviewTime extends BaseServlet{
             req.setAttribute("size",0);
             this.forward("interviewTime",req,resp);
         }
+        
         /*
-
         long time = System.currentTimeMillis() ;
         //一分钟一更新
         if(time - lastUpdate > 60000){
