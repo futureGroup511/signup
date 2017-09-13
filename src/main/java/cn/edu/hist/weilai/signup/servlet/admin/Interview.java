@@ -32,7 +32,7 @@ public class Interview extends BaseServlet{
 
 		String search = req.getParameter("search");
 		if(! CheckUtils.hasNull(search)) {
-			search = new String(search.getBytes("iso8859-1"));
+			search = new String(search.getBytes("iso8859-1"),"utf-8");
 		}
 		String p = req.getParameter("page");
 		int page = TextUtils.parseInt(p, 1);

@@ -145,6 +145,8 @@
 			<span>共找到</span><span class="am-text-warning">${pc.count }</span><span>个结果,当前</span><span
 				class="am-text-warning">${pc.currPage } / ${pc.pageNum }</span><span>页</span>
 			<a target="_blank" href="downloadExcel?state=${state}&search=${search}">,下载<span class="am-text-warning">${pc.count }</span>个结果的Excel</a>
+			<br>
+        	<span class="am-text-default">点击姓名进行资料修改</span>
 		</div>
 		<div class="am-u-sm-12">
         	<span class="am-text-default">当前预设面试安排：</span>
@@ -182,7 +184,7 @@
 					</thead>
 					<c:forEach var="item" items="${pc.data }">
 						<tr>
-							<td>${item.name }</td>
+							<td><a href="changeStudent?id=${item._id }">${item.name }</a></td>
 							<td>${item.phone }</td>
 							<td>${item.qq }</td>
 							<td>${item.majorClass }</td>

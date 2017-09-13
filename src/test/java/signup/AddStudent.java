@@ -14,8 +14,7 @@ import cn.edu.hist.weilai.signup.service.StudentService;
 public class AddStudent {
 	
 	public static void main(String[] args) {
-		
 		StudentService ss = new StudentService();
-		ss.delete(StudentState.DELETE);
+		ss.queryAll("fsda8098Afdsongson宋");
 	}
 }

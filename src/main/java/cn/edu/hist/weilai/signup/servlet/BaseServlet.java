@@ -35,6 +35,7 @@ public class BaseServlet extends HttpServlet{
 	protected StatisticsService statisticsService = new StatisticsService();
 	protected VisitLogService visitLogService = new VisitLogService();
 	protected SignupLogService signupLogService = new SignupLogService();
+	protected OldStudentService oldStudentService = new OldStudentService();
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

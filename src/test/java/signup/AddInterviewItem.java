@@ -1,9 +1,6 @@
 package signup;
 
-import cn.edu.hist.weilai.signup.entity.InterviewItem;
-import cn.edu.hist.weilai.signup.service.InterviewItemService;
 import cn.edu.hist.weilai.signup.service.StatisticsService;
-import cn.edu.hist.weilai.signup.servlet.admin.Statistics;
 
 /*
 @Author:song

@@ -1,24 +1,23 @@
 package cn.edu.hist.weilai.signup.servlet;
 
-import cn.edu.hist.weilai.signup.entity.Student;
-import cn.edu.hist.weilai.signup.entity.StudentState;
+import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+
+import cn.edu.hist.weilai.signup.entity.Student;
 
 @WebServlet("/interviewTime")
 public class InterviewTime extends BaseServlet{
 
+	/*
+	 * 改为搜索姓名才能显示
     private long lastUpdate = 0L;
     private List<Student> students = new LinkedList<>();
-
+	 */
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,7 +25,7 @@ public class InterviewTime extends BaseServlet{
         String search = req.getParameter("search");
         if(search!=null && search.trim().length() > 0 ){
             logger.debug(search);
-            search = new String(search.getBytes("iso8859-1"));
+            search = new String(search.getBytes("iso8859-1"),"utf-8");
             logger.debug(search);
             req.setAttribute("search",search);
             List<Student> results = studentService.queryAll(search);
@@ -35,7 +34,13 @@ public class InterviewTime extends BaseServlet{
             req.setAttribute("size",results.size());
             this.forward("interviewTime",req,resp);
             return;
+        }else {
+        	req.setAttribute("students",null);
+            req.setAttribute("search",null);
+            req.setAttribute("size",0);
+            this.forward("interviewTime",req,resp);
         }
+        /*
 
         long time = System.currentTimeMillis() ;
         //一分钟一更新
@@ -87,5 +92,6 @@ public class InterviewTime extends BaseServlet{
         req.setAttribute("students",students);
         req.setAttribute("size",students.size());
         this.forward("interviewTime",req,resp);
+        */
     }
 }

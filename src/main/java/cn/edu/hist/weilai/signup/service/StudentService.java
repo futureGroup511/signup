@@ -105,6 +105,10 @@ public class StudentService extends MongoBaseDao<Student>{
 		return MongoEntityUtils.toList(results, Student.class);
 	}
 	public List<Student> queryAll(String name){
+		//防止正则表达式注入,去掉所有英文字符和数字
+		name = name.replaceAll("[a-zA-Z0-9]", "");
+		logger.debug(name);
+		//
 		String regStr = String.format("\\S*%s\\S*", name);
 		MongoCursor<Document> results = getCollection().find(Filters.regex("name",regStr)).iterator();
 		return MongoEntityUtils.toList(results, Student.class);
