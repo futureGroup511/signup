@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter({"/index.html","/signup.html"})
+@WebFilter({"/index.html"})
 public class IndexFilter implements Filter {
 
     private Logger  logger= Logger.getLogger(this.getClass());

@@ -13,7 +13,7 @@
 	<div class="am-g">
 		<div class="am-u-sm-12 am-u-md-centered">
             <p class="am-text-lg">未来小组面试安排</p>
-            <p class="am-text-xs">每1分钟更新,有面试排序在前,以报名时间排序</p>
+            <p class="am-text-xs">为保障同学们信息  , 必须输入姓名全名方可查到</p>
 		</div><!-- am-u -->
 	</div>
 	<div class="am-g">

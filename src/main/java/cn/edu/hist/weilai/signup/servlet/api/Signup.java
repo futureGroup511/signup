@@ -39,8 +39,14 @@ public class Signup extends BaseServlet{
 		}
 
 		String[] values = this.getParams(req, "name","phone","qq","college","majorClass");
+		
 		for(String str:values){
-            logger.debug(str);
+            if(str!=null && str.length()>30) {
+            	req.setAttribute("warning", "某些信息填写的太长了?");
+            	ApiTools.respResult(ReturnResult.REQUEST_ERROR, resp);
+    			return;
+            }
+			logger.debug(str);
         }
         logger.debug(CheckUtils.hasNull(values));
         logger.debug(CheckUtils.hasStrs(values,"<",">"));

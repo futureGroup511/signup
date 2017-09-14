@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -12,374 +12,73 @@
     <meta name="x5-fullscreen" content="true">
     <title>未来工作室</title>
     <link rel="shortcut icon" href="https://dev-1251811540.costj.myqcloud.com/signup/images/logo.png">
-    <link rel="stylesheet" href="https://dev-1251811540.costj.myqcloud.com/signup/css/reset.css">
-    <link rel="stylesheet" href="css/signup.css">
-    <script src="js/zepto.js"></script>
-    <script src="js/zopto-touch.js"></script>
-    <script src="js/scrollPage.js"></script>
+    <link rel="stylesheet" href="static/plugins/amazeui/css/amazeui.min.css">
 </head>
 <body>
-<div id="container">
-    <div class="page page7">
-        <div class="page7-container">
-            <form action="">
-                <input class="page7-input page7-input1" type="text" placeholder="姓名:">
-                <input class="page7-input page7-input2" type="text" placeholder="班级:">
-                <input class="page7-input page7-input3" type="text" placeholder="电话:">
-                <input class="page7-input page7-input4" type="text" placeholder="QQ:">
-                <input class="page7-input page7-input5" type="text" placeholder="学习方向:">
-                <input class="page7-input page7-input6" type="submit" value="点击报名">
-            </form>
-            <div class="page7-center">
-                <div class="page7-selector page7-lan"><span></span> &nbsp Java web</div>
-                <div class="page7-selector"><span></span>&nbsp web前端</div>
-                <div class="page7-selector" value=' '><span></span>&nbsp UI设计</div>
-            </div>
-        </div>
-    </div>
-    <div class="page page8">
-        <div class="page8-container">
-            <div class="page8-title-container">
-                <h3 class="page8-title">
-                    点击二维码加群</h3></div>
-            <div class="page8-img">
-                <a target="_blank"
-                   href="https://jq.qq.com/?_wv=1027&k=5UqudiN">
-                    <img src="https://dev-1251811540.costj.myqcloud.com/signup/images/qz-code.png" alt="" width="220px">
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="ball-canvas">
-        <canvas class="canvas"></canvas>
-    </div>
-    <div class="rolls">
-        <div class="roll top-roll"></div>
-        <div class="roll bottom-roll"></div>
-        <div class="roll left-roll"></div>
-        <div class="roll right-roll"></div>
-        <div class="rect fz"></div>
-        <div class="title">
-            <div class="title-left">
-                <img src="https://dev-1251811540.costj.myqcloud.com/signup/images/p-dong.png" alt="">
-            </div>
-            <div class="title-center">
-                <div class="title-center-img"></div>
-                <div class="title-center-left">
-                    <img src="https://dev-1251811540.costj.myqcloud.com/signup/images/h3.png" alt="">
-                </div>
-                <div class="title-center-center">
-                    <h1 class="title-center-center-h1">在线报名</h1>
-                </div>
-                <div class="title-center-right">
-                    <img src="https://dev-1251811540.costj.myqcloud.com/signup/images/h2.png" alt="">
-                </div>
-            </div>
-            <div class="title-right">
-                <img src="https://dev-1251811540.costj.myqcloud.com/signup/images/p1-dong2.png" alt="">
-            </div>
-        </div>
-        <div class="footer">
-            <img class="footer-left" src="https://dev-1251811540.costj.myqcloud.com/signup/images/p-person.png" alt="">
-            <img class="footer-right" src="https://dev-1251811540.costj.myqcloud.com/signup/images/young.png" alt="">
-        </div>
-        <div class="arrow">
-            <img src="https://dev-1251811540.costj.myqcloud.com/signup/images/arrow.png" alt="arrow">
-        </div>
-    </div>
-</div>
+	<div class="am-g">
+		<div class="am-u-sm-12">
+			<form class="am-form" id="signup-form">
+			  <fieldset>
+			    <legend>欢迎新同学报名</legend>
+			    <div class="am-form-group">
+			      <label for="name-in">姓名</label>
+			      <input type="text" class="" id="name-in" name="name" placeholder="你的大名" required>
+			    </div>
+			    <div class="am-form-group">
+			      <label for="majorClass-in">班级</label>
+			      <input type="text" class="" id="majorClass-in" name="majorClass" placeholder="如:计科171" required>
+			    </div>
+			    <div class="am-form-group">
+			      <label for="phone-in">手机号</label>
+			      <input type="text" class="" id="phone-in" name="phone" placeholder="方便我们联系你" data-validation-message="输入地球上的手机号撒" pattern="^1[0-9]{10}$" required>
+			    </div>
+			    <div class="am-form-group">
+			      <label for="qq-in">QQ号</label>
+			      <input type="text" class="" id="qq-in" name="qq" placeholder="QQ" pattern="^\d{5,10}$" data-validation-message="QQ号码不正确?检查一下" required>
+			    </div>
+			  
+			    <div class="am-form-group">
+			      <label for="college-in">感兴趣的方向</label>
+			      <select id="college-in" name="college">
+			        <option value="Java Web">Java Web</option>
+			        <option value="前端开发">前端开发</option>
+			        <option value="UI设计">UI设计</option>
+			      </select>
+			      <span class="am-form-caret"></span>
+			    </div>
+			    <p><button id="signup-btn" style="width:100%;" type="submit" class="am-btn am-btn-success">报名</button></p>
+			    <p><a href="interviewTime" style="display:block;width:100%;color:#FFF;" class="am-btn am-btn-primary">查看面试安排</a></p>
+			  </fieldset>
+			</form>
+		</div>
+	</div>
+
+
+<script src="static/js/jquery-3.1.1.min.js"></script>
+<script src="static/plugins/amazeui/js/amazeui.min.js"></script>
 <script>
-    var ballCanvas = $('.ball-canvas'),
-        canvas = document.querySelector('.canvas'),
-        width = ballCanvas.width(),
-        height = ballCanvas.height(),
-        innerR = 0, outerR = 0, middleR = 0
-    timer = null
-    canvas.width = width
-    canvas.height = height
-    var ctx = canvas.getContext('2d')
+$(function() {
+	  $('#signup-form').validator({
+	    onValid: function(validity) {
+	      $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+	    },
+	    onInValid: function(validity) {
+	      var $field = $(validity.field);
+	      var $group = $field.closest('.am-form-group');
+	      var $alert = $group.find('.am-alert');
+	      // 使用自定义的提示信息 或 插件内置的提示信息
+	      var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
 
-    function first(index) {
-        ballCanvas.css({'z-index': '99999', 'display': 'block', opacity: '1', transition: 'opacity 0.5s ease-out'})
-        drawCanvas(index)
-        $('.rect').removeClass("fz")
-    }
+	      if (!$alert.length) {
+	        $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
+	          appendTo($group);
+	      }
+	      $alert.html(msg).show();
+	    }
+	  });
+	});
 
-    first(0)
-    
-
-    function nonePage(index) {
-        var arr = [nonePage7, nonePage8]
-        var arrPageClass = ['.page7', '.page8']
-        for (var i = arr.length - 1, len = 0; i >= 0; i--) {
-            if (index !== i) {
-                arr[i]()
-                hiddenPage(arrPageClass[i])
-            } else {
-                showPage(arrPageClass[i])
-            }
-        }
-    }
-
-    function drawCanvas(index) {
-        innerR = 50
-        middleR = 100
-        outerR = 150
-        if (timer)
-            clearInterval(timer)
-        timer = setInterval(function () {
-            ctx.clearRect(0, 0, width, height)
-            if (innerR < 250) {
-                innerR += 3
-                middleR += 4
-                outerR += 5
-                draw(innerR, middleR, outerR)
-            }
-            else {
-                ballCanvas.css({'z-index': "0", top: ''})
-                clearInterval(timer)
-                $('.rect').addClass("fz")
-                animation(index)
-            }
-        }, 10)
-    }
-
-    //  canvas动画结束
-    function animation(index) {
-        ballCanvas.css({'display': 'none'})
-        startAnimation(index)
-    }
-
-    function initCommon() {
-        $('.title-center-img').css({'top': '300%', opacity: '0'})
-        $('.title-center-center-h1').css({'left': '-200%', opacity: '0'})
-        $('.title-left').css({opacity: '0'})
-        $('.title-right').css({opacity: '0'})
-        $('.title-center-left').css({animation: "", opacity: '0'})
-        $('.title-center-right').css({animation: "", opacity: '0'})
-        $('.footer-left').css({transform: 'scale(0)', opacity: '0'})
-        $('.footer-right').css({opacity: '0'})
-    }
-
-    var setTimer = null
-
-    function startAnimation(index) {
-        if (setTimer) {
-            clearTimeout(setTimer)
-        }
-        setTimer = setTimeout(function () {
-            var arr = [page7, page8]
-            arr[index]()
-        }, 1000)
-        $('.title-center-img').css({
-            'top': '0', opacity: '1',
-            transition: "all 0.8s ease-out"
-        })
-        $('.footer-left').css({transform: 'scale(1)', opacity: '1', transition: "all 1s linear"})
-        setTimeout(function () {
-            $('.footer-right').css({opacity: '1', transition: "all 1s linear"})
-            $('.title-center-center-h1').css({
-                'left': 'calc(50% - 48px)',
-                opacity: '1',
-                transition: "all 0.6s ease-out"
-            })
-            setTimeout(function () {
-                $('.title-left').css({
-                    opacity: '1',
-                    transition: "all 1s ease-out"
-                })
-                $('.title-right').css({
-                    opacity: '1',
-                    transition: "all 1s ease-out"
-                })
-                $('.title-center-left').css({animation: "left-monkey 0.5s ease-out", opacity: '1'})
-                $('.title-center-right').css({animation: "right-monkey 0.5s ease-out", opacity: '1'})
-            }, 600)
-        }, 800)
-    }
-
-    function draw(innerR, middleR, outerR) {
-        ctx.beginPath()
-        ctx.fillStyle = '#ffd073'
-        ctx.arc(width / 2, height / 2, outerR, 0, Math.PI * 2, true)
-        ctx.fill()
-        ctx.closePath()
-        ctx.beginPath()
-        ctx.fillStyle = '#ffbf40'
-        ctx.arc(width / 2, height / 2, middleR, 0, Math.PI * 2, true)
-        ctx.fill()
-        ctx.closePath()
-        ctx.beginPath()
-        ctx.fillStyle = '#fa0'
-        ctx.arc(width / 2, height / 2, innerR, 0, Math.PI * 2, true)
-        ctx.closePath()
-        ctx.fill()
-    }
-
-    function showPage(page) {
-        $(page).css({display: 'block'})
-    }
-
-    function hiddenPage(page) {
-        $(page).css({display: 'none'})
-    }
-
-    function page7() {
-        console.log('page7()')
-        var oInputs = $('.page7-input')
-        $('.page7').css({'z-index': '9999999'});
-        for (var i = 0, len = oInputs.length; i < len; i++) {
-            for (var i = 0, len = oInputs.length; i < len; i++) {
-                $(oInputs.get(i)).css({
-                    opacity: '1',
-                    transition: "all 1s ease-out " + (0.3 * i) + 's' + ""
-                })
-            }
-        }
-    }
-
-    function nonePage7() {
-        var oInputs = $('.page7-input')
-        for (var i = 0, len = oInputs.length; i < len; i++) {
-            for (var i = 0, len = oInputs.length; i < len; i++) {
-                $(oInputs.get(i)).css({
-                    opacity: '0',
-                    transition: ""
-                })
-            }
-        }
-        $('.page7-center').css({display: 'none'})
-        oInputs.val('')
-        $('.page7-input6').val('点击报名')
-    }
-
-    $('.page7-input5').on('click', function () {
-        page7hide('.page7-selector', '.page7-center', 'page7-lan', '.page7-input5');
-    });
-
-    function page7hide(selector, center, rmclass, input) {
-        $(center).css({
-            display: 'block'
-        });
-        var arry = $(selector);
-        var index;
-        $(selector).on('click', function (e) {
-            index = $(this).index();
-            rmadd();
-            $(center).css({
-                display: "none"
-            });
-        });
-
-        function rmadd() {
-            for (var i = 0; i < arry.length; i++) {
-                $(arry[i]).removeClass(rmclass);
-            }
-            $(arry[index]).addClass(rmclass);
-            var cc = $(arry[index]).text();
-            // alert();
-            $(input).val($(arry[index]).text().trim())
-        }
-    }
-
-    function page8() {
-        $('.page8').css('z-index', '9999999')
-        $('.page8-title-container').css({top: "3%", opacity: '1', transition: 'all 0.6s ease-out'})
-        $('.page8-img').css({transform: "scale(1) rotate(360deg)", opacity: '1', transition: 'all 0.8s ease-out 0.3s'})
-    }
-
-    function nonePage8() {
-        console.log('test')
-        $('.page8-title-container').css({transition: '', top: "100%", opacity: '0'})
-        $('.page8-img').css({transition: '', transform: "scale(0) rotate(0deg)", opacity: '0'})
-    }
-</script>
-<script>
-    //  表单验证
-    var oInputs = $('.page7-input')
-    $('.page7-input6').on('click', function () {
-        var patternQQ = /[1-9]([0-9]{5,11})/,
-            patternTel = /0?(13|14|15|18|17)[0-9]{9}/,
-            name = oInputs[0],
-            clasName = oInputs[1],
-            tel = oInputs[2],
-            qq = oInputs[3],
-            dec = oInputs[4]
-        if (name.value.trim() === '') {
-            name.value = ''
-            alert("姓名输入有误，请重填");
-            return false;
-        }
-        if (clasName.value.trim() === '') {
-            clasName.value = ''
-            alert("班级输入有误，请重填");
-            return false;
-        }
-        if (!patternTel.test(tel.value.trim())) {
-            tel.value = ''
-            alert("手机号码输入有误，请重填");
-            return false;
-        }
-        if (!patternQQ.test(qq.value.trim())) {
-            qq.value = ''
-            alert("QQ号码输入有误，请重填");
-            return false;
-        }
-        if (dec.value.trim() === '') {
-            dec.value = ''
-            alert("学习方向输入有误，请重填");
-            return false;
-        }
-        var path = 'api/signup'
-//        post请求
-        $.post(path, {
-//            姓名
-            name: name.value,
-//            手机号
-            phone: tel.value,
-//            QQ号码
-            qq: qq.value,
-//            方向
-            college: dec.value,
-//            班级
-            majorClass: clasName.value
-        }, function (data, status) {
-//          data   {result:0,message:'成功'}
-//          data   {result:1,message:'请求错误'}
-//          data   {result:2,message:'用户已存在'}
-//          data   {result:3,message:'服务器错误'}
-//          data   {result:4,message:'报名已经截止'}
-                data = JSON.parse(data)
-                if (data.result === 0) {
-                    scrollPage('#container', '.page', function (index) {
-                        var arr = ['在线报名', '报名成功']
-                        $('.title-center-center-h1').text(arr[index])
-                        nonePage(index)
-                        first(index)
-                        initCommon()
-                    })
-//                    alert('报名' + data.message)
-                    $('.title-center-center-h1').text('报名成功')
-                    $('#container').trigger('swipeUp');
-                    //            验证成功后 清除表单信息
-                    for (var i = 0, len = (oInputs.length - 1); i < len; i++) {
-                        oInputs[i].value = ''
-                    }
-                } else {
-                    alert(data.message)
-                }
-        });
-        return false;
-    })
-    var body = $('body')
-    width = body.width(), height = body.height()
-    oInputs.on('focus', function () {
-        body.css({height: height, width: width})
-        $(this).css({transition: '', 'box-shadow': '0px 0px 2px 2px #fa0'})
-    })
-    oInputs.on('blur', function () {
-        $(this).css({'box-shadow': ''})
-    })
+	
 </script>
 </body>
 </html>
