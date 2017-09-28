@@ -54,6 +54,7 @@
 								</c:choose>
 							</th>
 						<th>${student.signupTime }</th>
+						
 					</tr>
 				</table>
 			</div>
@@ -61,41 +62,44 @@
 	</div>
 	<!-- am-g -->
 	<div class="am-g">
+		
+	</div>
+	<div class="am-g">
+		<div class="am-u-lg-8">
+			<img alt="" src="https://weilai-1251811540.cosbj.myqcloud.com/bishi1/${student.name }1.jpg" style="width:100%;">
+			<img alt="" src="https://weilai-1251811540.cosbj.myqcloud.com/bishi1/${student.name }2.jpg" style="width:100%;">
+		</div>
+		<div class="am-u-lg-4">
 		<div class="am-u-sm-12">
 			<p>评分：</p>
 			<p class="am-text-warning">${warning }</p>
 		</div>
-	</div>
-	<div class="am-g">
 		<form class="am-form am-form-horizontal" method="post">
 			<input type="hidden" name="id" value="${student._id }">
 			<c:forEach var="item" items="${interviewItems }">
 				<div class="am-u-sm-12">
 					<div class="am-form-group">
-
 						<c:choose>
 							<c:when test="${item.type == 'number' }">
 								<label for="interviewItem-${item._id }"
-									class="am-u-sm-2 am-form-label">${item.name }(${item.perfectScore })</label>
-								<div class="am-u-sm-10">
+									class="am-form-label">${item.name }(${item.perfectScore })</label>
+								<div class="am-u-sm-12">
 									<input name="${item.name }" type="number"
 										id="interviewItem-${item._id }" max="${item.perfectScore }"
 										min="0" value="${item.score }" placeholder="输入本项评分">
 								</div>
 							</c:when>
 							<c:when test="${item.type == 'text' }">
-								<label for="interviewItem-${item._id }"
-									class="am-u-sm-2 am-form-label">${item.name }(无分数)</label>
-								<div class="am-u-sm-10">
+								<label for="interviewItem-${item._id }">${item.name }(无分数)</label>
+								<div class="am-u-sm-12">
 									<input name="${item.name }" type="text"
 										id="interviewItem-${item._id }" value="${item.content }"
 										placeholder="输入评论">
 								</div>
 							</c:when>
 							<c:when test="${item.type == 'textarea' }">
-								<label for="interviewItem-${item._id }"
-									class="am-u-sm-2 am-form-label">${item.name }(无分数)</label>
-								<div class="am-u-sm-10">
+								<label for="interviewItem-${item._id }" >${item.name }(无分数)</label>
+								<div class="am-u-sm-12">
 									<textarea name="${item.name }" id="interviewItem-${item._id }"
 									rows="5" placeholder="输入评论">${item.content }</textarea>
 								</div>
@@ -113,8 +117,8 @@
 				</p>
 			</div>
 			</div>
-			
 		</form>
+		</div>
 	</div>
 	<!--  am-g -->
 

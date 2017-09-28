@@ -40,6 +40,7 @@
               <tr>
                 <th>姓名</th>
                 <th>班级</th>
+                <th>面试结果</th>
                 <th>面试安排</th>
               </tr>
               </thead>
@@ -48,6 +49,28 @@
                   <tr>
                     <td>${item.name}</td>
                     <td>${item.majorClass}</td>
+					<td>
+						<c:choose>
+									<c:when test="${item.state == 0 }">
+										<span>未面试</span>
+									</c:when>
+									<c:when test="${item.state == 1 }">
+										面试中
+									</c:when>
+									<c:when test="${item.state == 2 }">
+										<span class="am-text-success">面试成功</span>
+									</c:when>
+									<c:when test="${item.state == 3 }">
+										<span class="am-text-danger">面试失败</span>
+									</c:when>
+									<c:when test="${item.state == 4 }">
+										<span class="am-text-warning">已经删除</span>
+									</c:when>
+									<c:otherwise>
+										未知
+									</c:otherwise>
+						</c:choose>
+					</td>
                     <td>${item.interviewTime}</td>
                   </tr>
               </c:forEach>
