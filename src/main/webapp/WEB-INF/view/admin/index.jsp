@@ -4,12 +4,15 @@
 <html>
 <head>
 <jsp:include page="../common/head.jsp"></jsp:include>
+<%-- 
 <script src="${staticUrl }plugins/echarts/echarts.js"></script>
+ --%>
 <title>title</title>
 </head>
 <body>
 <jsp:include page="common/header.jsp"></jsp:include>
-
+<h1>首页加载太慢，关闭了</h1>
+<!-- 
 <div class="am-g">
 	<div class="am-u-sm-8">
 		<div id="signup-chart" style="width:100%;height:500px;"></div>
@@ -152,5 +155,6 @@
         interview_chart.setOption(interview_operation);
         
     </script>
+     -->
 </body>
 </html>

@@ -66,6 +66,7 @@
 <body>
 	<jsp:include page="common/header.jsp"></jsp:include>
 	<div class="height20"></div>
+	
 	<form class="am-form">
 		<div class="am-g">
 			<div class="am-u-sm-2">

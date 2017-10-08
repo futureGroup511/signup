@@ -5,6 +5,24 @@
 <head>
 <jsp:include page="../common/head.jsp"></jsp:include>
 <title>title</title>
+<script>
+var r1=0;
+var r2=0;
+function rotate1(){
+	console.log('r1')
+	var img1 = document.getElementById('img1')
+	r1 += 90;
+	var v = 'rotate('+r1+'deg)'
+	img1.style.transform = v
+}
+function rotate2(){
+	console.log('r2')
+	var img2 = document.getElementById('img2')
+	r2 += 90;
+	var v = 'rotate('+r2+'deg)'
+	img2.style.transform = v
+}
+</script>
 </head>
 <body>
 	<jsp:include page="common/header.jsp"></jsp:include>
@@ -66,8 +84,10 @@
 	</div>
 	<div class="am-g">
 		<div class="am-u-lg-8">
-			<img alt="" src="https://weilai-1251811540.cosbj.myqcloud.com/bishi1/${student.name }1.jpg" style="width:100%;">
-			<img alt="" src="https://weilai-1251811540.cosbj.myqcloud.com/bishi1/${student.name }2.jpg" style="width:100%;">
+			正面<div><button class="am-btn am-btn-success" onclick="rotate1()">旋转</button></div>
+			<img id="img1" alt="" src="https://weilai-1251811540.cosbj.myqcloud.com/bishi1/${student.name }1.jpg" style="width:100%;">
+			反面<div><button class="am-btn am-btn-success" onclick="rotate2()">旋转</button></div>
+			<img id="img2" class="am-btn am-btn-success" alt="" src="https://weilai-1251811540.cosbj.myqcloud.com/bishi1/${student.name }2.jpg" style="width:100%;">
 		</div>
 		<div class="am-u-lg-4">
 		<div class="am-u-sm-12">
